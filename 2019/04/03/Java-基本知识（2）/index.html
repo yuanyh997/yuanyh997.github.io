@@ -1,0 +1,1268 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java基础,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Java 基本知识（2）七、this关键字对象创建的过程和this的本质　　构造方法是创建Java对象的重要途径，通过new关键字调用构造器时，构造器也确实返回该类的对象，但这个对象并不是完全由构造器负责创建。创建一个对象分为如下四步：  分配对象空间，并将对象成员变量初始化为0或空 执行属性值的显示初始化 执行构造方法 返回对象的地址给相关的变量  　　this的本质就是“创建好的对象的地址”!">
+<meta name="keywords" content="Java基础">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java 基本知识（2）">
+<meta property="og:url" content="http://yoursite.com/2019/04/03/Java-基本知识（2）/index.html">
+<meta property="og:site_name" content="Yuan&#39;s blog">
+<meta property="og:description" content="Java 基本知识（2）七、this关键字对象创建的过程和this的本质　　构造方法是创建Java对象的重要途径，通过new关键字调用构造器时，构造器也确实返回该类的对象，但这个对象并不是完全由构造器负责创建。创建一个对象分为如下四步：  分配对象空间，并将对象成员变量初始化为0或空 执行属性值的显示初始化 执行构造方法 返回对象的地址给相关的变量  　　this的本质就是“创建好的对象的地址”!">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://www.sxt.cn/360shop/Public/admin/UEditor/20170516/1494927000371640.png">
+<meta property="og:image" content="http://www.sxt.cn/360shop/Public/admin/UEditor/20171028/1509162364830276.png">
+<meta property="og:updated_time" content="2019-04-03T11:29:57.549Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java 基本知识（2）">
+<meta name="twitter:description" content="Java 基本知识（2）七、this关键字对象创建的过程和this的本质　　构造方法是创建Java对象的重要途径，通过new关键字调用构造器时，构造器也确实返回该类的对象，但这个对象并不是完全由构造器负责创建。创建一个对象分为如下四步：  分配对象空间，并将对象成员变量初始化为0或空 执行属性值的显示初始化 执行构造方法 返回对象的地址给相关的变量  　　this的本质就是“创建好的对象的地址”!">
+<meta name="twitter:image" content="http://www.sxt.cn/360shop/Public/admin/UEditor/20170516/1494927000371640.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/04/03/Java-基本知识（2）/">
+
+
+
+
+
+  <title>Java 基本知识（2） | Yuan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/Java-基本知识（2）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Java 基本知识（2）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-03T17:47:25+08:00">
+                2019-04-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Java-基本知识（2）"><a href="#Java-基本知识（2）" class="headerlink" title="Java 基本知识（2）"></a>Java 基本知识（2）</h1><h2 id="七、this关键字"><a href="#七、this关键字" class="headerlink" title="七、this关键字"></a>七、this关键字</h2><h3 id="对象创建的过程和this的本质"><a href="#对象创建的过程和this的本质" class="headerlink" title="对象创建的过程和this的本质"></a>对象创建的过程和this的本质</h3><p>　　构造方法是创建Java对象的重要途径，通过new关键字调用构造器时，构造器也确实返回该类的对象，但这个对象并不是完全由构造器负责创建。创建一个对象分为如下四步：</p>
+<ol>
+<li>分配对象空间，并将对象成员变量初始化为0或空</li>
+<li>执行属性值的显示初始化</li>
+<li>执行构造方法</li>
+<li>返回对象的地址给相关的变量</li>
+</ol>
+<p>　　this的本质就是“创建好的对象的地址”! 由于在构造方法调用前，对象已经创建。因此，在构造方法中也可以使用this代表“当前对象” 。</p>
+<h3 id="this最常的用法"><a href="#this最常的用法" class="headerlink" title="this最常的用法"></a>this最常的用法</h3><ol>
+<li>在程序中产生二义性之处，应使用this来指明当前对象;普通方法中，this总是指向调用该方法的对象。构造方法中，this总是指向正要初始化的对象。</li>
+<li>使用this关键字调用重载的构造方法，避免相同的初始化代码。但只能在构造方法中用，并且必须位于构造方法的第一句。</li>
+<li>this不能用于static方法中。</li>
+</ol>
+<h4 id="this代表“当前对象”示例"><a href="#this代表“当前对象”示例" class="headerlink" title="this代表“当前对象”示例"></a><strong>this代表“当前对象”示例</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">`<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">	<span class="keyword">int</span> id;        <span class="comment">//id</span></span><br><span class="line">	String name;   <span class="comment">//账户名</span></span><br><span class="line">	String pwd;   <span class="comment">//密码</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="title">User</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">	System.out.println(<span class="string">"正在初始化已经创建好的对象："</span>+<span class="keyword">this</span>);</span><br><span class="line">	<span class="keyword">this</span>.id = id;   <span class="comment">//不写this，无法区分局部变量id和成员变量id</span></span><br><span class="line">	<span class="keyword">this</span>.name = name;</span><br><span class="line">		&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">login</span><span class="params">()</span></span>&#123;  </span><br><span class="line">	System.out.println(<span class="keyword">this</span>.name+<span class="string">",要登录！"</span>);  <span class="comment">//不写this效果一样</span></span><br><span class="line">		&#125;</span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">	User  u3 = <span class="keyword">new</span> User(<span class="number">101</span>,<span class="string">"高小七"</span>);</span><br><span class="line">	System.out.println(<span class="string">"打印高小七对象："</span>+u3);</span><br><span class="line">	u3.login();</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<p>运行结果如图所示。</p>
+<p><img src="http://www.sxt.cn/360shop/Public/admin/UEditor/20170516/1494927000371640.png" alt="1.png"></p>
+<h4 id="this-调用重载构造方法"><a href="#this-调用重载构造方法" class="headerlink" title="this()调用重载构造方法"></a><strong>this()调用重载构造方法</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestThis</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> a, b, c;</span><br><span class="line">    TestThis() &#123;</span><br><span class="line">        System.out.println(<span class="string">"正要初始化一个Hello对象"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    TestThis(<span class="keyword">int</span> a, <span class="keyword">int</span> b) &#123;</span><br><span class="line">        <span class="comment">// TestThis(); //这样是无法调用构造方法的！</span></span><br><span class="line">        <span class="keyword">this</span>(); <span class="comment">// 调用无参的构造方法，并且必须位于第一行！</span></span><br><span class="line">        a = a;<span class="comment">// 这里都是指的局部变量而不是成员变量</span></span><br><span class="line">        <span class="comment">// 这样就区分了成员变量和局部变量. 这种情况占了this使用情况大多数</span></span><br><span class="line">        <span class="keyword">this</span>.a = a;</span><br><span class="line">        <span class="keyword">this</span>.b = b;</span><br><span class="line">    &#125;</span><br><span class="line">    TestThis(<span class="keyword">int</span> a, <span class="keyword">int</span> b, <span class="keyword">int</span> c) &#123;</span><br><span class="line">        <span class="keyword">this</span>(a, b); <span class="comment">// 调用带参的构造方法，并且必须位于第一行！</span></span><br><span class="line">        <span class="keyword">this</span>.c = c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">sing</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        </span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">void</span> <span class="title">eat</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.sing(); <span class="comment">// 调用本类中的sing();</span></span><br><span class="line">        System.out.println(<span class="string">"你妈妈喊你回家吃饭！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        TestThis hi = <span class="keyword">new</span> TestThis(<span class="number">2</span>, <span class="number">3</span>);</span><br><span class="line">        hi.eat();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="八、static关键字"><a href="#八、static关键字" class="headerlink" title="八、static关键字"></a>八、static关键字</h2><h3 id="特点"><a href="#特点" class="headerlink" title="特点"></a>特点</h3><p>在类中，用static声明的成员变量为静态成员变量，也称为类变量。 类变量的生命周期和类相同，在整个应用程序执行期间都有效。它有如下特点：</p>
+<ol>
+<li>为该类的公用变量，属于类，被该类的所有实例共享，在类被载入时被显式初始化。</li>
+<li>对于该类的所有对象来说，static成员变量只有一份。被该类的所有对象共享!!</li>
+<li>一般用“类名.类属性/方法”来调用。(也可以通过对象引用或类名(不需要实例化)访问静态成员。)</li>
+<li>在static方法中不可直接访问非static的成员。</li>
+</ol>
+<p><strong>核心要点：</strong></p>
+<p><em>static修饰的成员变量和方法，从属于类。</em></p>
+<p><em>普通变量和方法从属于对象的。</em></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User2</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id; <span class="comment">// id</span></span><br><span class="line">    String name; <span class="comment">// 账户名</span></span><br><span class="line">    String pwd; <span class="comment">// 密码</span></span><br><span class="line">     </span><br><span class="line">    <span class="keyword">static</span> String company = <span class="string">"北京尚学堂"</span>; <span class="comment">// 公司名称</span></span><br><span class="line">     </span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User2</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">login</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        printCompany();</span><br><span class="line">        System.out.println(company); </span><br><span class="line">        System.out.println(<span class="string">"登录："</span> + name);</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCompany</span><span class="params">()</span> </span>&#123;</span><br><span class="line"><span class="comment">//         login();//调用非静态成员，编译就会报错</span></span><br><span class="line">        System.out.println(company);</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        User2 u = <span class="keyword">new</span> User2(<span class="number">101</span>, <span class="string">"高小七"</span>);</span><br><span class="line">        User2.printCompany();</span><br><span class="line">        User2.company = <span class="string">"北京阿里爷爷"</span>;</span><br><span class="line">        User2.printCompany();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="静态初始化块"><a href="#静态初始化块" class="headerlink" title="静态初始化块"></a>静态初始化块</h3><p>构造方法用于对象的初始化!静态初始化块，用于类的初始化操作!在静态初始化块中不能直接访问非static成员。</p>
+<p><strong>注意事项：</strong></p>
+<p>　静态初始化块执行顺序：</p>
+<ol>
+<li>上溯到Object类，先执行Object的静态初始化块，再向下执行子类的静态初始化块，直到我们的类的静态初始化块为止。</li>
+<li>构造方法执行顺序和上面顺序一样!!</li>
+</ol>
+<p><strong>static初始化块</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User3</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id;        <span class="comment">//id</span></span><br><span class="line">    String name;   <span class="comment">//账户名</span></span><br><span class="line">    String pwd;   <span class="comment">//密码</span></span><br><span class="line">    <span class="keyword">static</span> String company; <span class="comment">//公司名称</span></span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        System.out.println(<span class="string">"执行类的初始化工作"</span>);</span><br><span class="line">        company = <span class="string">"北京尚学堂"</span>;</span><br><span class="line">        printCompany();</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printCompany</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(company);</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        User3  u3 = <span class="keyword">new</span> User3();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="九、参数传值机制"><a href="#九、参数传值机制" class="headerlink" title="九、参数传值机制"></a>九、参数传值机制</h2><p>　Java中，方法中所有参数都是“值传递”，也就是“传递的是值的副本”。 也就是说，我们得到的是“原参数的复印件，而不是原件”。因此，复印件改变不会影响原件。</p>
+<h3 id="基本数据类型参数的传值"><a href="#基本数据类型参数的传值" class="headerlink" title="基本数据类型参数的传值"></a><strong>基本数据类型参数的传值</strong></h3><p>　　传递的是值的副本。 副本改变不会影响原件。</p>
+<h3 id="引用类型参数的传值"><a href="#引用类型参数的传值" class="headerlink" title="引用类型参数的传值"></a><strong>引用类型参数的传值</strong></h3><p>　　传递的是值的副本。但是引用类型指的是“对象的地址”。因此，副本和原参数都指向了同一个“地址”，改变“副本指向地址对象的值，也意味着原参数指向对象的值也发生了改变”。</p>
+<h4 id="多个变量指向同一个对象"><a href="#多个变量指向同一个对象" class="headerlink" title="多个变量指向同一个对象"></a><strong>多个变量指向同一个对象</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User4</span> </span>&#123;</span><br><span class="line">    <span class="keyword">int</span> id;        <span class="comment">//id</span></span><br><span class="line">    String name;   <span class="comment">//账户名</span></span><br><span class="line">    String pwd;   <span class="comment">//密码</span></span><br><span class="line">       </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">User4</span><span class="params">(<span class="keyword">int</span> id, String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span>   <span class="keyword">void</span>   <span class="title">testParameterTransfer01</span><span class="params">(User4  u)</span></span>&#123;</span><br><span class="line">        u.name=<span class="string">"高小八"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">     </span><br><span class="line">    <span class="function"><span class="keyword">public</span>   <span class="keyword">void</span>   <span class="title">testParameterTransfer02</span><span class="params">(User4  u)</span></span>&#123;</span><br><span class="line">        u  =  <span class="keyword">new</span>  User4(<span class="number">200</span>,<span class="string">"高三"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">      </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        User4   u1  =  <span class="keyword">new</span> User4(<span class="number">100</span>, <span class="string">"高小七"</span>);</span><br><span class="line">         </span><br><span class="line">        u1.testParameterTransfer01(u1); </span><br><span class="line">        System.out.println(u1.name);</span><br><span class="line"> </span><br><span class="line">        u1.testParameterTransfer02(u1);</span><br><span class="line">        System.out.println(u1.name);</span><br></pre></td></tr></table></figure>
+<p><img src="http://www.sxt.cn/360shop/Public/admin/UEditor/20171028/1509162364830276.png" alt="image.png"></p>
+<h2 id="十、包"><a href="#十、包" class="headerlink" title="十、包"></a>十、包</h2><pre><code>包机制是Java中管理类的重要手段。 开发中，我们会遇到大量同名的类，通过包我们很容易对解决类重名的问题，也可以实现对类的有效管理。 包对于类，相当于文件夹对于文件的作用。
+</code></pre><h3 id="包的使用"><a href="#包的使用" class="headerlink" title="包的使用"></a>包的使用</h3><p>我们通过package实现对类的管理，package的使用有两个要点：</p>
+<ol>
+<li>通常是类的第一句非注释性语句。</li>
+<li>包名：域名倒着写即可，再加上模块名，便于内部管理类。</li>
+</ol>
+<p><strong>【示例】 package的命名举例</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">com.sun.test;</span><br><span class="line">com.oracle.test;</span><br><span class="line">cn.sxt.yuan.test;</span><br><span class="line">cn.sxt.yuan.view;</span><br><span class="line">cn.sxt.yuan.view.model;</span><br></pre></td></tr></table></figure>
+<p><strong>注意事项：</strong></p>
+<ol>
+<li>写项目时都要加包，不要使用默认包。</li>
+<li>com.gao和com.gao.car，这两个包没有包含关系，是两个完全独立的包。只是逻辑上看起来后者是前者的一部分。</li>
+</ol>
+<p><strong>【示例】package的使用</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> cn.yuan;</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;       </span><br><span class="line">        System.out.println(<span class="string">"helloworld"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="Java中常用包"><a href="#Java中常用包" class="headerlink" title="Java中常用包"></a>Java中常用包</h3><table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Java</strong>中的常用包</td>
+<td><strong>说明</strong></td>
+</tr>
+<tr>
+<td>java.lang</td>
+<td>包含一些Java语言的核心类，如String、Math、Integer、System和Thread，提供常用功能。</td>
+</tr>
+<tr>
+<td>java.awt</td>
+<td>包含了构成抽象窗口工具集（abstract window toolkits）的多个类，这些类被用来构建和管理应用程序的图形用户界面(GUI)。</td>
+</tr>
+<tr>
+<td>java.net</td>
+<td>包含执行与网络相关的操作的类。</td>
+</tr>
+<tr>
+<td>java.io</td>
+<td>包含能提供多种输入/输出功能的类。</td>
+</tr>
+<tr>
+<td>java.util</td>
+<td>包含一些实用工具类，如定义系统特性、使用与日期日历相关的函数。</td>
+</tr>
+</tbody>
+</table>
+<p>如果我们要使用其他包的类，需要使用import导入，从而可以在本类中直接通过类名来调用，否则就需要书写类的完整包名和类名。import后，便于编写代码，提高可维护性。</p>
+<p><strong>注意要点：</strong></p>
+<ol>
+<li>Java会默认导入java.lang包下所有的类，因此这些类我们可以直接使用。</li>
+<li>如果导入两个同名的类，只能用包名+类名来显示调用相关类：　</li>
+</ol>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java.util.<span class="built_in">Date</span> <span class="built_in">date</span>  = <span class="literal">new</span>  java.util.<span class="built_in">Date</span>();</span><br></pre></td></tr></table></figure>
+<h5 id="【示例】"><a href="#【示例】" class="headerlink" title="【示例】"></a>【示例】</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.sql.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.*;<span class="comment">//导入该包下所有的类。会降低编译速度，但不会降低运行速度。</span></span><br><span class="line"> </span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//这里指的是java.sql.Date</span></span><br><span class="line">        Date now; </span><br><span class="line">        <span class="comment">//java.util.Date因为和java.sql.Date类同名，需要完整路径</span></span><br><span class="line">        java.util.Date  now2 = <span class="keyword">new</span> java.util.Date();</span><br><span class="line">        System.out.println(now2);      </span><br><span class="line">        <span class="comment">//java.util包的非同名类不需要完整路径</span></span><br><span class="line">        Scanner input = <span class="keyword">new</span> Scanner(System.in);    </span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="十一、继承"><a href="#十一、继承" class="headerlink" title="十一、继承"></a>十一、继承</h2><h3 id="继承的实现"><a href="#继承的实现" class="headerlink" title="继承的实现"></a>继承的实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Student s = <span class="keyword">new</span> Student(<span class="string">"高淇"</span>,<span class="number">172</span>,<span class="string">"Java"</span>);</span><br><span class="line">        s.rest();</span><br><span class="line">        s.study();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    String name;</span><br><span class="line">    <span class="keyword">int</span> height;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">rest</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"休息一会！"</span>);</span><br><span class="line">    &#125;  </span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Student</span> <span class="keyword">extends</span> <span class="title">Person</span> </span>&#123;</span><br><span class="line">    String major; <span class="comment">//专业</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">study</span><span class="params">()</span></span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"在尚学堂，学习Java"</span>);</span><br><span class="line">    &#125;  </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Student</span><span class="params">(String name,<span class="keyword">int</span> height,String major)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//天然拥有父类的属性</span></span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.height = height;</span><br><span class="line">        <span class="keyword">this</span>.major = major;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承的使用要点"><a href="#继承的使用要点" class="headerlink" title="继承的使用要点"></a>继承的使用要点</h3><p>1.父类也称作超类、基类等。</p>
+<p>2.Java中只有单继承，没有像C++那样的多继承。多继承会引起混乱，使得继承链过于复杂，系统难于维护。</p>
+<p>3.Java中类没有多继承，接口有多继承。</p>
+<p>4.子类继承父类，可以得到父类的全部属性和方法 (除了父类的构造方法)，但不见得可以直接访问(比如，父类私有的属性和方法)。</p>
+<p>5.如果定义一个类时，没有调用extends，则它的父类是：java.lang.Object。</p>
+<h3 id="方法的重写override"><a href="#方法的重写override" class="headerlink" title="方法的重写override"></a>方法的重写override</h3><h4 id="方法重写的三个要点"><a href="#方法重写的三个要点" class="headerlink" title="方法重写的三个要点"></a><strong>方法重写的三个要点</strong></h4><figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1.</span>“==”： 方法名、形参列表相同。</span><br><span class="line"></span><br><span class="line"><span class="number">2.</span>“≤”：返回值类型和声明异常类型，子类小于等于父类。</span><br><span class="line"></span><br><span class="line"><span class="number">3.</span>“≥”： 访问权限，子类大于等于父类。</span><br></pre></td></tr></table></figure>
+<h4 id="【示例】方法重写"><a href="#【示例】方法重写" class="headerlink" title="【示例】方法重写"></a><strong>【示例】方法重写</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestOverride</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Vehicle v1 = <span class="keyword">new</span> Vehicle();</span><br><span class="line">        Vehicle v2 = <span class="keyword">new</span> Horse();</span><br><span class="line">        Vehicle v3 = <span class="keyword">new</span> Plane();</span><br><span class="line">        v1.run();</span><br><span class="line">        v2.run();</span><br><span class="line">        v3.run();</span><br><span class="line">        v2.stop();</span><br><span class="line">        v3.stop();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vehicle</span> </span>&#123; <span class="comment">// 交通工具类</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"跑...."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"停止不动"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Horse</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123; <span class="comment">// 马也是交通工具</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; <span class="comment">// 重写父类方法</span></span><br><span class="line">        System.out.println(<span class="string">"四蹄翻飞，嘚嘚嘚..."</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"> </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Plane</span> <span class="keyword">extends</span> <span class="title">Vehicle</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123; <span class="comment">// 重写父类方法</span></span><br><span class="line">        System.out.println(<span class="string">"天上飞！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"空中不能停，坠毁了！"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="super关键字"><a href="#super关键字" class="headerlink" title="super关键字"></a><strong>super关键字</strong></h3><p>   super是直接父类对象的引用。可以通过super来访问父类中被子类覆盖的方法或属性。</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">使用<span class="keyword">super</span>调用普通方法，语句没有位置限制，可以在子类中随便调用。</span><br><span class="line"></span><br><span class="line">若是构造方法的第一行代码没有显式的调用<span class="keyword">super</span>(...)或者<span class="keyword">this</span>(...);那么Java默认都会调用<span class="keyword">super</span>(),含义是调用父类的无参数构造方法。这里的<span class="keyword">super</span>()可以省略。</span><br></pre></td></tr></table></figure>
+<h4 id="super关键字的使用"><a href="#super关键字的使用" class="headerlink" title="super关键字的使用"></a><strong>super关键字的使用</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSuper01</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">new</span> ChildClass().f();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FatherClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span></span>&#123;</span><br><span class="line">        value = <span class="number">100</span>;</span><br><span class="line">        System.out.println (<span class="string">"FatherClass.value="</span>+value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span> <span class="keyword">extends</span> <span class="title">FatherClass</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> value;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">f</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">super</span>.f();  <span class="comment">//调用父类对象的普通方法</span></span><br><span class="line">        value = <span class="number">200</span>;</span><br><span class="line">        System.out.println(<span class="string">"ChildClass.value="</span>+value);</span><br><span class="line">        System.out.println(value);</span><br><span class="line">        System.out.println(<span class="keyword">super</span>.value); <span class="comment">//调用父类对象的成员变量</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="继承树追溯"><a href="#继承树追溯" class="headerlink" title="继承树追溯"></a><strong>继承树追溯</strong></h3><h4 id="属性-方法查找顺序：-比如：查找变量h"><a href="#属性-方法查找顺序：-比如：查找变量h" class="headerlink" title="属性/方法查找顺序：(比如：查找变量h)"></a><strong>属性/方法查找顺序：(比如：查找变量h)</strong></h4><figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">1. </span>查找当前类中有没有属性h</span><br><span class="line"></span><br><span class="line"><span class="bullet">2. </span>依次上溯每个父类，查看每个父类中是否有h，直到Object</span><br><span class="line"></span><br><span class="line"><span class="bullet">3. </span>如果没找到，则出现编译错误。</span><br><span class="line"></span><br><span class="line"><span class="bullet">4. </span>上面步骤，只要找到h变量，则这个过程终止。</span><br></pre></td></tr></table></figure>
+<h4 id="构造方法调用顺序"><a href="#构造方法调用顺序" class="headerlink" title="构造方法调用顺序"></a><strong>构造方法调用顺序</strong></h4><pre><code>构造方法第一句总是：super(…)来调用父类对应的构造方法。所以，流程就是：先向上追溯到Object，然后再依次向下执行类的初始化块和构造方法，直到当前子类为止。
+</code></pre><p>  注：静态初始化块调用顺序，与构造方法调用顺序一样，不再重复。</p>
+<h4 id="构造方法向上追溯执行测试"><a href="#构造方法向上追溯执行测试" class="headerlink" title="构造方法向上追溯执行测试"></a><strong>构造方法向上追溯执行测试</strong></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSuper02</span> </span>&#123; </span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"开始创建一个ChildClass对象......"</span>);</span><br><span class="line">        <span class="keyword">new</span> ChildClass();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">FatherClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FatherClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"创建FatherClass"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ChildClass</span> <span class="keyword">extends</span> <span class="title">FatherClass</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ChildClass</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"创建ChildClass"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java基础/" rel="tag"># Java基础</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/04/03/Java-基本知识（1）/" rel="next" title="Java 基本知识（1）">
+                <i class="fa fa-chevron-left"></i> Java 基本知识（1）
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/03/Java-基本知识（3）/" rel="prev" title="Java 基本知识（3）">
+                Java 基本知识（3） <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Yuan">
+            
+              <p class="site-author-name" itemprop="name">Yuan</p>
+              <p class="site-description motion-element" itemprop="description">Life is a struggle. Wish you all the best !</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yuanyh997" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yuanyh997@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Java-基本知识（2）"><span class="nav-number">1.</span> <span class="nav-text">Java 基本知识（2）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#七、this关键字"><span class="nav-number">1.1.</span> <span class="nav-text">七、this关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#对象创建的过程和this的本质"><span class="nav-number">1.1.1.</span> <span class="nav-text">对象创建的过程和this的本质</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#this最常的用法"><span class="nav-number">1.1.2.</span> <span class="nav-text">this最常的用法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#this代表“当前对象”示例"><span class="nav-number">1.1.2.1.</span> <span class="nav-text">this代表“当前对象”示例</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#this-调用重载构造方法"><span class="nav-number">1.1.2.2.</span> <span class="nav-text">this()调用重载构造方法</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#八、static关键字"><span class="nav-number">1.2.</span> <span class="nav-text">八、static关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#特点"><span class="nav-number">1.2.1.</span> <span class="nav-text">特点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#静态初始化块"><span class="nav-number">1.2.2.</span> <span class="nav-text">静态初始化块</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#九、参数传值机制"><span class="nav-number">1.3.</span> <span class="nav-text">九、参数传值机制</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#基本数据类型参数的传值"><span class="nav-number">1.3.1.</span> <span class="nav-text">基本数据类型参数的传值</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#引用类型参数的传值"><span class="nav-number">1.3.2.</span> <span class="nav-text">引用类型参数的传值</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#多个变量指向同一个对象"><span class="nav-number">1.3.2.1.</span> <span class="nav-text">多个变量指向同一个对象</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十、包"><span class="nav-number">1.4.</span> <span class="nav-text">十、包</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#包的使用"><span class="nav-number">1.4.1.</span> <span class="nav-text">包的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Java中常用包"><span class="nav-number">1.4.2.</span> <span class="nav-text">Java中常用包</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#【示例】"><span class="nav-number">1.4.2.0.1.</span> <span class="nav-text">【示例】</span></a></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#十一、继承"><span class="nav-number">1.5.</span> <span class="nav-text">十一、继承</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的实现"><span class="nav-number">1.5.1.</span> <span class="nav-text">继承的实现</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承的使用要点"><span class="nav-number">1.5.2.</span> <span class="nav-text">继承的使用要点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法的重写override"><span class="nav-number">1.5.3.</span> <span class="nav-text">方法的重写override</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#方法重写的三个要点"><span class="nav-number">1.5.3.1.</span> <span class="nav-text">方法重写的三个要点</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#【示例】方法重写"><span class="nav-number">1.5.3.2.</span> <span class="nav-text">【示例】方法重写</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#super关键字"><span class="nav-number">1.5.4.</span> <span class="nav-text">super关键字</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#super关键字的使用"><span class="nav-number">1.5.4.1.</span> <span class="nav-text">super关键字的使用</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#继承树追溯"><span class="nav-number">1.5.5.</span> <span class="nav-text">继承树追溯</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#属性-方法查找顺序：-比如：查找变量h"><span class="nav-number">1.5.5.1.</span> <span class="nav-text">属性/方法查找顺序：(比如：查找变量h)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法调用顺序"><span class="nav-number">1.5.5.2.</span> <span class="nav-text">构造方法调用顺序</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#构造方法向上追溯执行测试"><span class="nav-number">1.5.5.3.</span> <span class="nav-text">构造方法向上追溯执行测试</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>
