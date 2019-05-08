@@ -1,6 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[Git使用]]></title>
+    <url>%2F2019%2F05%2F07%2FGit%E4%BD%BF%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[Git使用Github建立私有项目并将本地项目文件上传首先在GitHub上建立私有项目 然后跳转到本地对应项目目录，输入： 1git init 生成git管理 之后输入： 1git add . 将文件夹中所有文件添加到仓库 之后输入： 1git commit -m "first commit" 表示此次git的注释 再输入： 1git remote add origin https://XXX.git 将本地仓库关联到Github上 最后输入： 1git push -u origin master 上传至Github仓库，根据提示输入用户名和密码 使用Github提交代码123456#Github提交代码git status #查看当前状态git add . #或者 git add xxx 添加到本地Git缓冲区git commit -m "message" #推送修改到本地git库中git pull &lt;远程主机名&gt; &lt;远程分支名&gt; #origin mastergit push &lt;远程主机名&gt; &lt;远程分支名&gt; 采用SSH方式连接Github123456789101112131415#采用SSH方式连接Github（默认为https需要每次输入用户名密码）#首先查看git当前连接方式git remote -v#然后移除git remote rm origin#添加ssh方式/git remote add origin git@github.com:username/yourrepo.gitgit push origin#生成SSH公钥,并复制ssh-keygen -t rsa -C "youremail"vi /root/.ssh/id_rsa.pub#到Github设置里找到相应的SSH&amp;GPG key添加 ssh公钥#再次查看 连接方式git remote -v .gitignore格式规范文件 .gitignore 的格式规范如下： 所有空行或者以注释符号 ＃ 开头的行都会被 Git 忽略。 可以使用标准的 glob 模式匹配。 匹配模式最后跟反斜杠（/）说明要忽略的是目录。 要忽略指定模式以外的文件或目录，可以在模式前加上惊叹号（!）取反 ​ 所谓的 glob 模式是指 shell 所使用的简化了的正则表达式。星号（*）匹配零个或多个任意字符；[abc]匹配任何一个列在方括号中的字符（这个例子要么匹配一个 a，要么匹配一个 b，要么匹配一个 c）；问号（?）只匹配一个任意字符；如果在方括号中使用短划线分隔两个字符，表示所有在这两个字符范围内的都可以匹配（比如 [0-9] 表示匹配所有 0 到 9 的数字）。 12345678910111213# 此为注释 – 将被 Git 忽略# 忽略所有 .a 结尾的文件*.a# 但 lib.a 除外!lib.a# 仅仅忽略项目根目录下的 TODO 文件，不包括 subdir/TODO/TODO# 忽略 build/ 目录下的所有文件build/# 会忽略 doc/notes.txt 但不包括 doc/server/arch.txtdoc/*.txt# 忽略 doc/ 目录下所有扩展名为 txt 的文件doc/**/*.txt Git常用命令12345678910111213141516171819202122232425git clone &lt;address&gt;：复制代码库到本地；git add &lt;file&gt; ...：添加文件到代码库中；git rm &lt;file&gt; ...：删除代码库的文件；git commit -m &lt;message&gt;：提交更改，在修改了文件以后，使用这个命令提交修改。git pull：从远程同步代码库到本地。git push：推送代码到远程代码库。git branch：查看当前分支。带*是当前分支。git branch &lt;branch-name&gt;：新建一个分支。git branch -d &lt;branch-name&gt;：删除一个分支。git checkout &lt;branch-name&gt;：切换到指定分支。git log：查看提交记录（即历史的 commit 记录）。git status：当前修改的状态，是否修改了还没提交，或者那些文件未使用。git reset &lt;log&gt;：恢复到历史版本。 参考链接： https://git-scm.com/book/zh/v1/Git-%E5%9F%BA%E7%A1%80-%E6%9F%A5%E7%9C%8B%E6%8F%90%E4%BA%A4%E5%8E%86%E5%8F%B2]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Github</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[mysql基本操作]]></title>
+    <url>%2F2019%2F04%2F15%2Fmysql%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
+    <content type="text"><![CDATA[mysql基本操作安装123456789#在CentOS7.1安装mysqlwget https://repo.mysql.com/mysql57-community-release-el7.rpmsudo yum localinstall mysql57-community-release-el7.rpmyum repolist all | grep mysqlsudo yum-config-manager --enable mysql57-communitysudo yum install mysql-community-serversudo service mysqld startsudo chkconfig mysqld onmysql_secure_installation 基本使用123456789101112131415#mysql安装后的默认密码获取grep "temporary password" /var/log/mysqld.log#登陆之后在修改kRMx,HhtE5N!#启动mysqlservice mysqld startmysql -u root -pSET PASSWORD = PASSWORD('lns');#创建数据库，并导入文件create database lns;use lns;set names utf8;source /root/lns.sql; mysql导出数据库mysqldump -u用戶名 -p密码 -d 数据库名 表名 &gt; 脚本名; 1234567891011导出整个数据库结构和数据mysqldump -h localhost -uroot -p123456 database &gt; dump.sql导出单个数据表结构和数据mysqldump -h localhost -uroot -p123456 database table &gt; dump.sql导出整个数据库结构（不包含数据）mysqldump -h localhost -uroot -p123456 -d database &gt; dump.sql导出单个数据表结构（不包含数据）mysqldump -h localhost -uroot -p123456 -d database table &gt; dump.sql]]></content>
+      <categories>
+        <category>mysql</category>
+      </categories>
+      <tags>
+        <tag>项目</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[在PHP环境下安装Composer]]></title>
+    <url>%2F2019%2F04%2F14%2F%E5%9C%A8PHP%E7%8E%AF%E5%A2%83%E4%B8%8B%E5%AE%89%E8%A3%85Composer%2F</url>
+    <content type="text"><![CDATA[在PHP环境下安装Composer 由于项目需要安装PHPOffice所以要先安装Composer 但是去官网试试下载了他的installer发现总是卡在最后一步 没办法只好再次百度，发现分为三步， 第一步. 修改php.exe同目录的php.ini，在里面搜索 ;extension=php_openssl.dll ，把前面的分号去掉。(这一步已经完成了) 第二步. 用如下三条命令安装Composer 123php -r "copy('https://install.phpcomposer.com/installer', 'composer-setup.php');"php composer-setup.phpphp -r "unlink('composer-setup.php');" 执行第一条命令下载下来的 composer-setup.php 脚本将简单地检测 php.ini 中的参数设置，如果某些参数未正确设置则会给出警告；然后下载最新版本的 composer.phar 文件到当前目录。 上述 3 条命令的作用依次是： 下载安装脚本 － composer-setup.php － 到当前目录。 执行安装过程。 删除安装脚本。 最后会下载一个composer.phar文件。 局部安装上述下载 Composer 的过程正确执行完毕后，可以将 composer.phar 文件复制到任意目录（比如项目根目录下），然后通过 php composer.phar 指令即可使用 Composer 了！ 全局安装全局安装是将 Composer 安装到系统环境变量 PATH 所包含的路径下面，然后就能够在命令行窗口中直接执行 composer 命令了。 Mac 或 Linux 系统：打开命令行窗口并执行如下命令将前面下载的 composer.phar 文件移动到 /usr/local/bin/ 目录下面： 复制 1sudo mv composer.phar /usr/local/bin/composer Windows 系统： 找到并进入 PHP 的安装目录（和你在命令行中执行的 php 指令应该是同一套 PHP）。 将 composer.phar 复制到 PHP 的安装目录下面，也就是和 php.exe在同一级目录。 在 PHP 安装目录下新建一个 composer.bat 文件，并将下列代码保存到此文件中。 复制 1@php "%~dp0composer.phar" %* 最后重新打开一个命令行窗口试一试执行 composer --version 看看是否正确输出版本号。 然而这是骗自己的。。。放到其他目录就不行了，不知道是不是没加进环境变量的原因，但是重跑一遍installer之后又能安装了，那就这样吧。 参考链接：https://pkg.phpcomposer.com/#how-to-install-composer https://docs.phpcomposer.com/00-intro.html 切换国内源： composer config -g repo.packagist composer https://packagist.phpcomposer.com 安装PHPWord composer require “phpoffice/phpword” composer install https://phpword.readthedocs.io/en/latest/installing.html#installation GitHub项目在这：https://github.com/PHPOffice/PHPWord 官方文档在这：http://phpword.readthedocs.io/en/latest/index.html 但是还是没法复制 问题待解决]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Just For Remember</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[Wamp64在不同的端口下部署多项目]]></title>
+    <url>%2F2019%2F04%2F13%2F%E5%9C%A8Windows%E7%9A%84Wamp64%E4%B8%8B%E5%9C%A8%E4%B8%8D%E5%90%8C%E7%9A%84%E7%AB%AF%E5%8F%A3%E4%B8%8B%E9%83%A8%E7%BD%B2%E5%A4%9A%E9%A1%B9%E7%9B%AE%EF%BC%9A%2F</url>
+    <content type="text"><![CDATA[在Windows的Wamp64下在不同的端口下部署多项目：首先打开注释： 12# Virtual hostsInclude conf/extra/httpd-vhosts.conf 修改C:\wamp64\bin\apache\apache2.4.37\conf\extra下的 httpd-vhosts.conf 12345678910111213141516171819202122232425262728293031323334# Virtual Hosts#&lt;VirtualHost *:80&gt; ServerName localhost ServerAlias localhost DocumentRoot &quot;$&#123;INSTALL_DIR&#125;/www&quot; &lt;Directory &quot;$&#123;INSTALL_DIR&#125;/www/&quot;&gt; Options +Indexes +Includes +FollowSymLinks +MultiViews AllowOverride All Require local &lt;/Directory&gt;&lt;/VirtualHost&gt;Listen 88&lt;VirtualHost *:88&gt; ServerName localhost DocumentRoot C:/wamp64/www/jsjxh/src &lt;Directory &quot;C:/wamp64/www/jsjxh/src&quot;&gt; Options +Indexes +Includes +FollowSymLinks +MultiViews AllowOverride All Require local &lt;/Directory&gt;&lt;/VirtualHost&gt;Listen 777&lt;VirtualHost *:777&gt; ServerName localhost DocumentRoot C:/wamp64/www/2017 &lt;Directory &quot;C:/wamp64/www/2017&quot;&gt; Options +Indexes +Includes +FollowSymLinks +MultiViews AllowOverride All Require local &lt;/Directory&gt;&lt;/VirtualHost&gt;]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>Just For Remember</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[博客优化]]></title>
     <url>%2F2019%2F04%2F03%2F%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96%2F</url>
     <content type="text"><![CDATA[博客优化hexo主题：https://www.zhihu.com/question/24422335 NexT主题下载：https://github.com/iissnan/hexo-theme-next/releases hexo官方文档：https://hexo.io/zh-cn/docs/tag-plugins NexT官方文档：http://theme-next.iissnan.com/getting-started.html MarkDown编辑器：Typora 主要思想就是有两个 _config.yml 一个是项目相关的，另外一个是主题的配置 要调整的要分清结构 调整字体大小： F:\blog\themes\next\source\css_variables下的base.styl 12345678910// Font size$font-size-base = 16px //修改以前是14，我改成了16$font-size-small = $font-size-base - 2px$font-size-smaller = $font-size-base - 4px$font-size-large = $font-size-base + 2px$font-size-larger = $font-size-base + 4px// Headings font size$font-size-headings-step = 2px$font-size-headings-base = 24px //这个是标题大小，如果你觉得不满意，可以改的更大一点 后续等待添加。。。]]></content>
