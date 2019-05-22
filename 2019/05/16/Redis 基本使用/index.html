@@ -129,21 +129,31 @@
 
 
 
-<meta name="description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
+<meta name="description" content="Redis 基本使用基本介绍Redis是一种NoSQL数据库 官网: http://redis.io/ 和 http://www.redis.cn/ Redis 在Windows下安装但是Redis不再支持Windows，所以去Github上下载微软支持版本 https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100 有两种">
 <meta name="keywords" content="Just For Remember">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搭建流程">
-<meta property="og:url" content="http://yoursite.com/2019/04/03/博客搭建/index.html">
+<meta property="og:title" content="Redis 基本使用">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/Redis 基本使用/index.html">
 <meta property="og:site_name" content="Yuan&#39;s blog">
-<meta property="og:description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
+<meta property="og:description" content="Redis 基本使用基本介绍Redis是一种NoSQL数据库 官网: http://redis.io/ 和 http://www.redis.cn/ Redis 在Windows下安装但是Redis不再支持Windows，所以去Github上下载微软支持版本 https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100 有两种">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg">
-<meta property="og:image" content="c:/Users/Yuan/AppData/Local/Temp/1554295750422.png">
-<meta property="og:updated_time" content="2019-05-08T01:17:14.540Z">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558333201484.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558333862240.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558335365270.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558335371227.png">
+<meta property="og:image" content="file:///C:/Users/Yuan/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558335466924.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558335631513.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558335738838.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558335915168.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558336032910.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558336129969.png">
+<meta property="og:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558336210294.png">
+<meta property="og:updated_time" content="2019-05-22T07:15:03.730Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客搭建流程">
-<meta name="twitter:description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
-<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg">
+<meta name="twitter:title" content="Redis 基本使用">
+<meta name="twitter:description" content="Redis 基本使用基本介绍Redis是一种NoSQL数据库 官网: http://redis.io/ 和 http://www.redis.cn/ Redis 在Windows下安装但是Redis不再支持Windows，所以去Github上下载微软支持版本 https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100 有两种">
+<meta name="twitter:image" content="c:/Users/Yuan/AppData/Roaming/Typora/typora-user-images/1558333201484.png">
 
 
 
@@ -173,13 +183,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/03/博客搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/Redis 基本使用/">
 
 
 
 
 
-  <title>博客搭建流程 | Yuan's blog</title>
+  <title>Redis 基本使用 | Yuan's blog</title>
   
 
 
@@ -338,7 +348,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/博客搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/Redis 基本使用/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan">
@@ -355,7 +365,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">博客搭建流程</h1>
+          <h1 class="post-title" itemprop="name headline">Redis 基本使用</h1>
         
 
         <div class="post-meta">
@@ -367,8 +377,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-03T21:00:25+08:00">
-                2019-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T20:20:25+08:00">
+                2019-05-16
               </time>
             
 
@@ -390,8 +400,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
+                  <a href="/categories/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
                   </a>
                 </span>
 
@@ -421,7 +431,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  574
                 </span>
               
 
@@ -446,81 +456,58 @@
       
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。</p>
-<h2 id="Jekyll-Github"><a href="#Jekyll-Github" class="headerlink" title="Jekyll + Github"></a>Jekyll + Github</h2><p>​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。</p>
-<p>原文：<a href="https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1" target="_blank" rel="noopener">https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1</a></p>
-<p>大略看了下，好像还涉及前端的知识，由于不是主攻方向，正准备放弃的时候，发现关键词 Jekyll ！于是把Jekyll + Github 百度一下：</p>
-<p>官网：<a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">https://www.jekyll.com.cn/</a></p>
-<p>参考：<a href="https://blog.csdn.net/Hanghang_/article/details/78944672" target="_blank" rel="noopener">https://blog.csdn.net/Hanghang_/article/details/78944672</a></p>
-<p>发现流程主要是：</p>
+        <h1 id="Redis-基本使用"><a href="#Redis-基本使用" class="headerlink" title="Redis 基本使用"></a>Redis 基本使用</h1><h2 id="基本介绍"><a href="#基本介绍" class="headerlink" title="基本介绍"></a>基本介绍</h2><p>Redis是一种NoSQL数据库</p>
+<p>官网: <a href="http://redis.io/" target="_blank" rel="noopener">http://redis.io/</a> 和 <a href="http://www.redis.cn/" target="_blank" rel="noopener">http://www.redis.cn/</a></p>
+<h2 id="Redis-在Windows下安装"><a href="#Redis-在Windows下安装" class="headerlink" title="Redis 在Windows下安装"></a>Redis 在Windows下安装</h2><p>但是Redis不再支持Windows，所以去Github上下载微软支持版本</p>
+<p><a href="https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100" target="_blank" rel="noopener">https://github.com/microsoftarchive/redis/releases/tag/win-3.2.100</a></p>
+<p>有两种版本 </p>
 <ol>
-<li><p>注册Github（这个基本可以略过）</p>
-</li>
-<li><p>选择主题  主题商店：<a href="http://jekyllthemes.org/" target="_blank" rel="noopener">http://jekyllthemes.org/</a></p>
-<ol start="3">
-<li>Fork 别人的项目，把名字修改成:{username}.github.io</li>
-<li>用Git把项目下载到本地然后开始修改</li>
-<li>开始写博客</li>
+<li>.msi是安装版本 </li>
+<li>.zip是已经编译版本</li>
 </ol>
-<p>非常凑巧的是他的博客也是用md格式转化而成的，本来这应该是个非常顺利的过程。但是问题出现在第二步，不知道为什么我选的那个主题的作者好像没公开他的源码，这就非常纠结了。其他的主题也不能说不行，就是不太合胃口，于是开始重新搜索，结果发现另外一种方式，Hexo + Github + NexT主题。</p>
-</li>
-</ol>
-<h2 id="Hexo-Github-NexT主题"><a href="#Hexo-Github-NexT主题" class="headerlink" title="Hexo + Github + NexT主题"></a>Hexo + Github + NexT主题</h2><h3 id="一-前期准备"><a href="#一-前期准备" class="headerlink" title="一. 前期准备"></a>一. 前期准备</h3><ol>
-<li><p>注册Github，添加项目，项目名字格式{username}.github.io</p>
-</li>
-<li><p>安装Git和Node.js（地址就不放了）</p>
-</li>
-<li><p>安装Hexo，建立新文件夹放博客的文件，在该目录下右键点击<code>Git Bash Here</code>，打开git的控制台窗口。操作都在git控制台进行，（当然也可以用Windows自带的控制台）</p>
-</li>
-<li><p>定位到该目录下，输入<code>npm install hexo-cli -g</code>安装Hexo。会有几个报错，无视它就行。</p>
-</li>
-<li><p>然后输入<code>npm install hexo --save</code>继续安装。</p>
-<p>安装完后输入<code>hexo -v</code>验证是否安装成功。</p>
-</li>
-<li><p>输入<code>hexo init</code>初始化文件夹，接着输入<code>npm install</code>安装必备的组件。</p>
-</li>
-<li><p>这样本地的网站配置也弄好啦，输入<code>hexo g</code>生成静态网页，然后输入<code>hexo s</code>打开本地服务器，然后浏览器打开[<a href="http://localhost:4000/]" target="_blank" rel="noopener">http://localhost:4000/]</a> 默认是4000 也可以用-p 来指定端口。</p>
-</li>
-<li><p><img src="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg" alt="img"></p>
-</li>
-<li><p>演示效果如上图（自己的忘存了。。。），我自己在这里碰见N次502 错误，最后才发现是SSR没关导致的，最后改成直连就能显示了。</p>
-</li>
-<li><p>最后按<code>ctrl+c</code>关闭本地服务器。</p>
-</li>
-</ol>
-<h3 id="二-配置Git-ssh"><a href="#二-配置Git-ssh" class="headerlink" title="二. 配置Git  ssh"></a>二. 配置Git  ssh</h3><h4 id="1-设置Git的user-name和email"><a href="#1-设置Git的user-name和email" class="headerlink" title="1. 设置Git的user name和email"></a>1. 设置Git的user name和email</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"&#123;username&#125;"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"&#123;emailaddr&#125;"</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-检查是否已经有SSH-Key"><a href="#2-检查是否已经有SSH-Key" class="headerlink" title="2. 检查是否已经有SSH Key"></a>2. 检查是否已经有SSH Key</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line"><span class="keyword">ls</span></span><br></pre></td></tr></table></figure>
-<p>列出文件看看是否有 id_isa 和 id_isa.pub 文件</p>
-<p>如果有可以跳过生成密钥这一阶段</p>
-<ol start="3">
-<li><h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4></li>
-</ol>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"&#123;email&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>​    如果不需要密码的话，连续3个回车。最后得到了两个文件：id_rsa和id_rsa.pub。</p>
-<p>默认的存储路径是：</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\U</span>sers<span class="symbol">\&#123;</span>UserName&#125;<span class="symbol">\.</span>ssh</span><br></pre></td></tr></table></figure>
-<h4 id="4-添加密钥到ssh-agent"><a href="#4-添加密钥到ssh-agent" class="headerlink" title="4. 添加密钥到ssh-agent"></a>4. 添加密钥到ssh-agent</h4><p>​    确保 ssh-agent 是可用的。ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，</p>
-<p>​    运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure>
-<p>​    添加生成的 SSH key 到 ssh-agent。</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span><span class="bash"> ~/.ssh/id_rsa</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-登陆Github-添加-ssh"><a href="#5-登陆Github-添加-ssh" class="headerlink" title="5. 登陆Github, 添加 ssh"></a>5. 登陆Github, 添加 ssh</h4><p>​    打开<a href="http://link.zhihu.com/?target=http%3A//github.com/" target="_blank" rel="noopener">github</a>，在头像下面点击<code>settings</code>，再点击<code>SSH and GPG keys</code>，新建一个SSH，名字随便。</p>
-<p>​    打开<code>C:\Users\{UserName}\.ssh\id_rsa.pub</code>，注意是隐藏文件夹，将其中的内容复制到新建的SSH中。</p>
-<p>​    输入<code>ssh -T git@github.com</code>，如果如下图所示，出现你的用户名，那就成功了。</p>
-<p><img src="C:\Users\Yuan\AppData\Local\Temp\1554295750422.png" alt="1554295750422"></p>
-<p>​    打开博客根目录下的<code>_config.yml</code>文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
-<p>​    修改最后一行的配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/&#123;username&#125;/&#123;username&#125;.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>repository修改为你自己的github项目地址。</p>
-<h3 id="三-文章相关操作"><a href="#三-文章相关操作" class="headerlink" title="三.文章相关操作"></a>三.文章相关操作</h3><h4 id="写文章、发布文章"><a href="#写文章、发布文章" class="headerlink" title="写文章、发布文章"></a>写文章、发布文章</h4><p>​    首先在博客根目录下右键打开git，安装一个扩展<code>npm install hexo-deployer-git --save</code>。</p>
-<p>​    然后输入<code>hexo new post &quot;article title&quot;</code>，新建一篇文章。</p>
-<p>​    然后打开博客目录下的<code>\source\_posts</code>的目录，可以发现下面多了一个文件夹和一个<code>.md</code>文件，一个用来存放你的图片等数据，另一个就是你的文章文件啦。</p>
-<p>​    编写完markdown文件后，根目录下输入<code>hexo g</code>生成静态网页，然后输入<code>hexo s</code>可以本地预览效果，最后输入<code>hexo d</code>上传到github上。这时打开你的github.io主页就能看到发布的文章。</p>
-<p>​    当然这一步也可以用之前写好的md文件放进去加一个Yaml格式的头在最前面里面写上标题，创建时间，等相关信息也是可以自动生成的。</p>
-<p>​    至于其他的比如换主题之类的就留到下一篇吧。这个基本上把博客给搭建完了。</p>
-<p>参考1：<a href="https://blog.csdn.net/gdutxiaoxu/article/details/53573399" target="_blank" rel="noopener">https://blog.csdn.net/gdutxiaoxu/article/details/53573399</a></p>
-<p>参考2：<a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35668237</a></p>
-<p>hexo中文官网：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
+<p>此次采用的第二种：</p>
+<p>解压后的文件目录</p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558333201484.png" alt="1558333201484"></p>
+<p>其中redis-server.exe 是服务器端，需要一直开启。但是网上有另外一种安装服务的方法。</p>
+<p>redis-cli.exe 是客户端命令行</p>
+<p>redis.windows.conf 是配置文件</p>
+<p>redis-benchmark：Redis性能测试工具，测试Redis在你的系统及你的配置下的读写性能。</p>
+<h3 id="安装Redis服务的方法"><a href="#安装Redis服务的方法" class="headerlink" title="安装Redis服务的方法"></a>安装Redis服务的方法</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#安装</span></span><br><span class="line">redis-server --service-install redis.windows.conf</span><br><span class="line"><span class="comment">#启动</span></span><br><span class="line">redis-server --service-start</span><br></pre></td></tr></table></figure>
+<h2 id="Redis的基本使用"><a href="#Redis的基本使用" class="headerlink" title="Redis的基本使用"></a>Redis的基本使用</h2><p>命令参考：<a href="http://redisdoc.com" target="_blank" rel="noopener">http://redisdoc.com</a></p>
+<p>打开redis-cli.exe</p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558333862240.png" alt="1558333862240"></p>
+<h2 id="Redis的CRUD"><a href="#Redis的CRUD" class="headerlink" title="Redis的CRUD"></a>Redis的CRUD</h2><p>Redis的五大数据类型 String（字符串），Hash（哈希），List（列表），Set（集合），zset（sorted set：有序集合）</p>
+<h3 id="String类型"><a href="#String类型" class="headerlink" title="String类型"></a>String类型</h3><p>string是基本类型 key与value 一一对应</p>
+<p>set[如果存在就相当于修改，不存在就是添加]/get/del</p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558335365270.png" alt="1558335365270"></p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558335371227.png" alt="1558335371227"></p>
+<p>setex(set with expire)键秒值</p>
+<p>mset[同时设置一个或多个 key-value 对]</p>
+<p>​                       <img src="file:///C:/Users/Yuan/AppData/Local/Temp/msohtmlclip1/01/clip_image001.jpg" alt="img">       </p>
+<p>mget[同时获取多个 key-val]</p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558335466924.png" alt="1558335466924"></p>
+<h3 id="Hash-哈希，类似-golang-里的-Map-类型"><a href="#Hash-哈希，类似-golang-里的-Map-类型" class="headerlink" title="Hash (哈希，类似 golang 里的 Map)类型"></a>Hash (哈希，类似 golang 里的 Map)类型</h3><p>Redis hash 是一个键值对集合。var user1 map[string]string</p>
+<p>Redis hash 是一个 string 类型的 field 和 value 的映射表，hash 特别适合用于存储对象。</p>
+<ul>
+<li>hset/hget/hgetall/hdel</li>
+<li><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558335631513.png" alt="1558335631513"></li>
+<li>使用 hmset 和  hmget  可以一次性来设置多个 filed  的值和返回多个 field 的值 </li>
+<li>hlen 统计一个 hash  有几个元素.</li>
+<li>hexists key field， 查看哈希表 key 中，给定域 field 是否存在</li>
+</ul>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558335738838.png" alt="1558335738838"></p>
+<h3 id="List（列表）类型"><a href="#List（列表）类型" class="headerlink" title="List（列表）类型"></a>List（列表）类型</h3><p>列表是简单的字符串列表，按照插入顺序排序。你可以添加一个元素到列表的头部（左边）或者尾部（右边）。</p>
+<p>List 本质是个链表, List 的元素 是有序的，元素的值可以重复</p>
+<ul>
+<li>lpush/rpush/lrange/lpop/rpop/del</li>
+</ul>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558335915168.png" alt="1558335915168"></p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558336032910.png" alt="1558336032910"></p>
+<h3 id="Set（集合）类型"><a href="#Set（集合）类型" class="headerlink" title="Set（集合）类型"></a>Set（集合）类型</h3><p>Redis 的 Set 是 string 类型的无序集合</p>
+<p>底层是 HashTable 数据结构, Set 也是存放很多字符串元素，字符串元素是无序的，而且元素的值不能重复</p>
+<p> sadd/smembers[取出所有值]/sismember[判断值是否是成员] /srem [删除指定值]</p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558336129969.png" alt="1558336129969"></p>
+<p><img src="C:\Users\Yuan\AppData\Roaming\Typora\typora-user-images\1558336210294.png" alt="1558336210294"></p>
 
       
     </div>
@@ -551,8 +538,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/03/Java-基本知识（3）/" rel="next" title="Java 基本知识（3）">
-                <i class="fa fa-chevron-left"></i> Java 基本知识（3）
+              <a href="/2019/05/16/SQL Quick Intro/" rel="next" title="SQL Quick Intro">
+                <i class="fa fa-chevron-left"></i> SQL Quick Intro
               </a>
             
           </div>
@@ -561,8 +548,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/03/博客优化/" rel="prev" title="博客优化">
-                博客优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/18/Golang 操作 Redis/" rel="prev" title="Golang 操作 Redis">
+                Golang 操作 Redis <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -713,7 +700,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jekyll-Github"><span class="nav-number">2.</span> <span class="nav-text">Jekyll + Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-Github-NexT主题"><span class="nav-number">3.</span> <span class="nav-text">Hexo + Github + NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-前期准备"><span class="nav-number">3.1.</span> <span class="nav-text">一. 前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-配置Git-ssh"><span class="nav-number">3.2.</span> <span class="nav-text">二. 配置Git  ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-设置Git的user-name和email"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. 设置Git的user name和email</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-检查是否已经有SSH-Key"><span class="nav-number">3.2.2.</span> <span class="nav-text">2. 检查是否已经有SSH Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成密钥"><span class="nav-number">3.2.3.</span> <span class="nav-text">生成密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-添加密钥到ssh-agent"><span class="nav-number">3.2.4.</span> <span class="nav-text">4. 添加密钥到ssh-agent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-登陆Github-添加-ssh"><span class="nav-number">3.2.5.</span> <span class="nav-text">5. 登陆Github, 添加 ssh</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-文章相关操作"><span class="nav-number">3.3.</span> <span class="nav-text">三.文章相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写文章、发布文章"><span class="nav-number">3.3.1.</span> <span class="nav-text">写文章、发布文章</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Redis-基本使用"><span class="nav-number">1.</span> <span class="nav-text">Redis 基本使用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本介绍"><span class="nav-number">1.1.</span> <span class="nav-text">基本介绍</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis-在Windows下安装"><span class="nav-number">1.2.</span> <span class="nav-text">Redis 在Windows下安装</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#安装Redis服务的方法"><span class="nav-number">1.2.1.</span> <span class="nav-text">安装Redis服务的方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis的基本使用"><span class="nav-number">1.3.</span> <span class="nav-text">Redis的基本使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Redis的CRUD"><span class="nav-number">1.4.</span> <span class="nav-text">Redis的CRUD</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#String类型"><span class="nav-number">1.4.1.</span> <span class="nav-text">String类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hash-哈希，类似-golang-里的-Map-类型"><span class="nav-number">1.4.2.</span> <span class="nav-text">Hash (哈希，类似 golang 里的 Map)类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List（列表）类型"><span class="nav-number">1.4.3.</span> <span class="nav-text">List（列表）类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set（集合）类型"><span class="nav-number">1.4.4.</span> <span class="nav-text">Set（集合）类型</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>

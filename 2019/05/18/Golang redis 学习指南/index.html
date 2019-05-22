@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Just For Remember,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="go-redis 学习指南安装我使用的是 https://github.com/go-redis/r… 这个 golang 客户端, 因此安装方式如下: go get gopkg.in/redis.v4 接着在代码中导入此包即可: import “gopkg.in/redis.v4” 基本操作创建客户端通过 redis.NewClient 函数即可创建一个 redis 客户端, 这个方法接收一个">
+<meta name="keywords" content="Just For Remember">
+<meta property="og:type" content="article">
+<meta property="og:title" content="go-redis 学习指南">
+<meta property="og:url" content="http://yoursite.com/2019/05/18/Golang redis 学习指南/index.html">
+<meta property="og:site_name" content="Yuan&#39;s blog">
+<meta property="og:description" content="go-redis 学习指南安装我使用的是 https://github.com/go-redis/r… 这个 golang 客户端, 因此安装方式如下: go get gopkg.in/redis.v4 接着在代码中导入此包即可: import “gopkg.in/redis.v4” 基本操作创建客户端通过 redis.NewClient 函数即可创建一个 redis 客户端, 这个方法接收一个">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-05-22T07:15:13.129Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="go-redis 学习指南">
+<meta name="twitter:description" content="go-redis 学习指南安装我使用的是 https://github.com/go-redis/r… 这个 golang 客户端, 因此安装方式如下: go get gopkg.in/redis.v4 接着在代码中导入此包即可: import “gopkg.in/redis.v4” 基本操作创建客户端通过 redis.NewClient 函数即可创建一个 redis 客户端, 这个方法接收一个">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/05/18/Golang redis 学习指南/">
+
+
+
+
+
+  <title>go-redis 学习指南 | Yuan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/18/Golang redis 学习指南/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">go-redis 学习指南</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-18T20:20:25+08:00">
+                2019-05-18
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GO/" itemprop="url" rel="index">
+                    <span itemprop="name">GO</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GO/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.2k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="go-redis-学习指南"><a href="#go-redis-学习指南" class="headerlink" title="go-redis 学习指南"></a>go-redis 学习指南</h1><h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>我使用的是 <a href="https://github.com/go-redis/redis" target="_blank" rel="noopener"><strong>https://github.com/go-redis/r…</strong></a> 这个 golang 客户端, 因此安装方式如下:</p>
+<p>go get gopkg.in/redis.v4</p>
+<p>接着在代码中导入此包即可:</p>
+<p>import “gopkg.in/redis.v4”</p>
+<h2 id="基本操作"><a href="#基本操作" class="headerlink" title="基本操作"></a>基本操作</h2><h3 id="创建客户端"><a href="#创建客户端" class="headerlink" title="创建客户端"></a>创建客户端</h3><p>通过 redis.NewClient 函数即可创建一个 redis 客户端, 这个方法接收一个 redis.Options 对象参数, 通过这个参数, 我们可以配置 redis 相关的属性, 例如 redis 服务器地址, 数据库名, 数据库密码等.<br> 下面是一个连接的例子:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 创建 redis 客户端</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">createClient</span><span class="params">()</span> *<span class="title">redis</span>.<span class="title">Client</span></span> &#123;</span><br><span class="line">    client := redis.NewClient(&amp;redis.Options&#123;</span><br><span class="line">        Addr:     <span class="string">"localhost:6379"</span>,</span><br><span class="line">        Password: <span class="string">""</span>,</span><br><span class="line">        DB:       <span class="number">0</span>,</span><br><span class="line">    &#125;)</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 通过 cient.Ping() 来检查是否成功连接到了 redis 服务器</span></span><br><span class="line">    pong, err := client.Ping().Result()</span><br><span class="line">    fmt.Println(pong, err)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> client</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="String-操作"><a href="#String-操作" class="headerlink" title="String 操作"></a>String 操作</h3><p>redis 的 String 操作有:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">set(key, value)：给数据库中名称为key的<span class="keyword">string</span>赋予值value</span><br><span class="line"></span><br><span class="line">get(key)：返回数据库中名称为key的<span class="keyword">string</span>的value</span><br><span class="line"></span><br><span class="line">getset(key, value)：给名称为key的<span class="keyword">string</span>赋予上一次的value</span><br><span class="line"></span><br><span class="line">mget(key1, key2,…, key N)：返回库中多个<span class="keyword">string</span>的value</span><br><span class="line"></span><br><span class="line">setnx(key, value)：添加<span class="keyword">string</span>，名称为key，值为value</span><br><span class="line"></span><br><span class="line">setex(key, time, value)：向库中添加<span class="keyword">string</span>，设定过期时间time</span><br><span class="line"></span><br><span class="line">mset(key N, value N)：批量设置多个<span class="keyword">string</span>的值</span><br><span class="line"></span><br><span class="line">msetnx(key N, value N)：如果所有名称为key i的<span class="keyword">string</span>都不存在</span><br><span class="line"></span><br><span class="line">incr(key)：名称为key的<span class="keyword">string</span>增<span class="number">1</span>操作</span><br><span class="line"></span><br><span class="line">incrby(key, integer)：名称为key的<span class="keyword">string</span>增加integer</span><br><span class="line"></span><br><span class="line">decr(key)：名称为key的<span class="keyword">string</span>减<span class="number">1</span>操作</span><br><span class="line"></span><br><span class="line">decrby(key, integer)：名称为key的<span class="keyword">string</span>减少integer</span><br><span class="line"></span><br><span class="line"><span class="built_in">append</span>(key, value)：名称为key的<span class="keyword">string</span>的值附加value</span><br><span class="line"></span><br><span class="line">substr(key, start, end)：返回名称为key的<span class="keyword">string</span>的value的子串</span><br></pre></td></tr></table></figure>
+<p>在 go-redis 中, 我们可以直接找到对应的操作方法, 直接上代码:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// String 操作</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">stringOperation</span><span class="params">(client *redis.Client)</span></span> &#123;</span><br><span class="line">    <span class="comment">// 第三个参数是过期时间, 如果是0, 则表示没有过期时间.</span></span><br><span class="line">    err := client.Set(<span class="string">"name"</span>, <span class="string">"xys"</span>, <span class="number">0</span>).Err()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    val, err := client.Get(<span class="string">"name"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"name"</span>, val)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 这里设置过期时间.</span></span><br><span class="line">    err = client.Set(<span class="string">"age"</span>, <span class="string">"20"</span>, <span class="number">1</span> * time.Second).Err()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    client.Incr(<span class="string">"age"</span>) <span class="comment">// 自增</span></span><br><span class="line">    client.Incr(<span class="string">"age"</span>) <span class="comment">// 自增</span></span><br><span class="line">    client.Decr(<span class="string">"age"</span>) <span class="comment">// 自减</span></span><br><span class="line"></span><br><span class="line">    val, err = client.Get(<span class="string">"age"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"age"</span>, val) <span class="comment">// age 的值为21</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 因为 key "age" 的过期时间是一秒钟, 因此当一秒后, 此 key 会自动被删除了.</span></span><br><span class="line">    time.Sleep(<span class="number">1</span> * time.Second)</span><br><span class="line">    val, err = client.Get(<span class="string">"age"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="comment">// 因为 key "age" 已经过期了, 因此会有一个 redis: nil 的错误.</span></span><br><span class="line">        fmt.Printf(<span class="string">"error: %v\n"</span>, err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"age"</span>, val)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="list-操作"><a href="#list-操作" class="headerlink" title="list 操作"></a>list 操作</h3><p>redis 的 list 操作有:</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">rpush(key, value)：在名称为key的list尾添加一个值为value的元素</span><br><span class="line"></span><br><span class="line">lpush(key, value)：在名称为key的list头添加一个值为value的 元素</span><br><span class="line"></span><br><span class="line">llen(key)：返回名称为key的list的长度</span><br><span class="line"></span><br><span class="line">lrange(key, <span class="keyword">start</span>, <span class="keyword">end</span>)：返回名称为<span class="keyword">key</span>的<span class="keyword">list</span>中<span class="keyword">start</span>至<span class="keyword">end</span>之间的元素</span><br><span class="line"></span><br><span class="line"><span class="keyword">ltrim</span>(<span class="keyword">key</span>, <span class="keyword">start</span>, <span class="keyword">end</span>)：截取名称为<span class="keyword">key</span>的<span class="keyword">list</span></span><br><span class="line"></span><br><span class="line">lindex(<span class="keyword">key</span>, <span class="keyword">index</span>)：返回名称为<span class="keyword">key</span>的<span class="keyword">list</span>中<span class="keyword">index</span>位置的元素</span><br><span class="line"></span><br><span class="line">lset(<span class="keyword">key</span>, <span class="keyword">index</span>, <span class="keyword">value</span>)：给名称为<span class="keyword">key</span>的<span class="keyword">list</span>中<span class="keyword">index</span>位置的元素赋值</span><br><span class="line"></span><br><span class="line">lrem(<span class="keyword">key</span>, <span class="keyword">count</span>, <span class="keyword">value</span>)：删除<span class="keyword">count</span>个<span class="keyword">key</span>的<span class="keyword">list</span>中值为<span class="keyword">value</span>的元素</span><br><span class="line"></span><br><span class="line">lpop(<span class="keyword">key</span>)：返回并删除名称为<span class="keyword">key</span>的<span class="keyword">list</span>中的首元素</span><br><span class="line"></span><br><span class="line">rpop(<span class="keyword">key</span>)：返回并删除名称为<span class="keyword">key</span>的<span class="keyword">list</span>中的尾元素</span><br><span class="line"></span><br><span class="line">blpop(key1, key2,… <span class="keyword">key</span> N, <span class="keyword">timeout</span>)：lpop命令的<span class="keyword">block</span>版本。</span><br><span class="line"></span><br><span class="line">brpop(key1, key2,… <span class="keyword">key</span> N, <span class="keyword">timeout</span>)：rpop的<span class="keyword">block</span>版本。</span><br><span class="line"></span><br><span class="line">rpoplpush(srckey, dstkey)：返回并删除名称为srckey的<span class="keyword">list</span>的尾元素，并将该元素添加到名称为dstkey的<span class="keyword">list</span>的头部</span><br></pre></td></tr></table></figure>
+<p>同样地, 在 go-redis 中也可以找到对应的方法, 下面是一个简单的示例:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// list 操作</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">listOperation</span><span class="params">(client *redis.Client)</span></span> &#123;</span><br><span class="line">    client.RPush(<span class="string">"fruit"</span>, <span class="string">"apple"</span>) </span><br><span class="line">    <span class="comment">//在名称为 fruit 的list尾添加一个值为value的元素</span></span><br><span class="line">    client.LPush(<span class="string">"fruit"</span>, <span class="string">"banana"</span>) </span><br><span class="line">    <span class="comment">//在名称为 fruit 的list头添加一个值为value的 元素</span></span><br><span class="line">    length, err := client.LLen(<span class="string">"fruit"</span>).Result() </span><br><span class="line">    <span class="comment">//返回名称为 fruit 的list的长度</span></span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"length: "</span>, length) <span class="comment">// 长度为2</span></span><br><span class="line"></span><br><span class="line">    value, err := client.LPop(<span class="string">"fruit"</span>).Result() </span><br><span class="line">    <span class="comment">//返回并删除名称为 fruit 的list中的首元素</span></span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"fruit: "</span>, value)</span><br><span class="line"></span><br><span class="line">    value, err = client.RPop(<span class="string">"fruit"</span>).Result() </span><br><span class="line">    <span class="comment">// 返回并删除名称为 fruit 的list中的尾元素</span></span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"fruit: "</span>, value)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="set-操作"><a href="#set-操作" class="headerlink" title="set 操作"></a>set 操作</h3><p>redis 的 set 操作:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">sadd(key, member)：向名称为key的set中添加元素member</span><br><span class="line"></span><br><span class="line">srem(key, member) ：删除名称为key的set中的元素member</span><br><span class="line"></span><br><span class="line">spop(key) ：随机返回并删除名称为key的set中一个元素</span><br><span class="line"></span><br><span class="line">smove(srckey, dstkey, member) ：移到集合元素</span><br><span class="line"></span><br><span class="line">scard(key) ：返回名称为key的set的基数</span><br><span class="line"></span><br><span class="line">sismember(key, member) ：member是否是名称为key的set的元素</span><br><span class="line"></span><br><span class="line">sinter(key1, key2,…key N) ：求交集</span><br><span class="line"></span><br><span class="line">sinterstore(dstkey, (keys)) ：求交集并将交集保存到dstkey的集合</span><br><span class="line"></span><br><span class="line">sunion(key1, (keys)) ：求并集</span><br><span class="line"></span><br><span class="line">sunionstore(dstkey, (keys)) ：求并集并将并集保存到dstkey的集合</span><br><span class="line"></span><br><span class="line">sdiff(key1, (keys)) ：求差集</span><br><span class="line"></span><br><span class="line">sdiffstore(dstkey, (keys)) ：求差集并将差集保存到dstkey的集合</span><br><span class="line"></span><br><span class="line">smembers(key) ：返回名称为key的set的所有元素</span><br><span class="line"></span><br><span class="line">srandmember(key) ：随机返回名称为key的set的一个元素</span><br></pre></td></tr></table></figure>
+<p>接下来是 go-redis 的 set 操作:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// set 操作</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">setOperation</span><span class="params">(client *redis.Client)</span></span> &#123;</span><br><span class="line">    client.SAdd(<span class="string">"blacklist"</span>, <span class="string">"Obama"</span>) <span class="comment">// 向 blacklist 中添加元素</span></span><br><span class="line">    client.SAdd(<span class="string">"blacklist"</span>, <span class="string">"Hillary"</span>) <span class="comment">// 再次添加</span></span><br><span class="line">    client.SAdd(<span class="string">"blacklist"</span>, <span class="string">"the Elder"</span>) <span class="comment">// 添加新元素</span></span><br><span class="line"></span><br><span class="line">    client.SAdd(<span class="string">"whitelist"</span>, <span class="string">"the Elder"</span>) <span class="comment">// 向 whitelist 添加元素</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 判断元素是否在集合中</span></span><br><span class="line">    isMember, err := client.SIsMember(<span class="string">"blacklist"</span>, <span class="string">"Bush"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"Is Bush in blacklist: "</span>, isMember)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 求交集, 即既在黑名单中, 又在白名单中的元素</span></span><br><span class="line">    names, err := client.SInter(<span class="string">"blacklist"</span>, <span class="string">"whitelist"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">// 获取到的元素是 "the Elder"</span></span><br><span class="line">    fmt.Println(<span class="string">"Inter result: "</span>, names)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取指定集合的所有元素</span></span><br><span class="line">    all, err := client.SMembers(<span class="string">"blacklist"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"All member: "</span>, all)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="hash-操作"><a href="#hash-操作" class="headerlink" title="hash 操作"></a>hash 操作</h3><p>redis 的 hash 操作:</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="title">hset</span><span class="params">(key, field, value)</span></span>：向名称为key的hash中添加元素field</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hget</span><span class="params">(key, field)</span></span>：返回名称为key的hash中field对应的value</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hmget</span><span class="params">(key, (fields)</span></span>)：返回名称为key的hash中field i对应的value</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hmset</span><span class="params">(key, (fields)</span></span>)：向名称为key的hash中添加元素field </span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hincrby</span><span class="params">(key, field, integer)</span></span>：将名称为key的hash中field的value增加integer</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hexists</span><span class="params">(key, field)</span></span>：名称为key的hash中是否存在键为field的域</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hdel</span><span class="params">(key, field)</span></span>：删除名称为key的hash中键为field的域</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hlen</span><span class="params">(key)</span></span>：返回名称为key的hash中元素个数</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hkeys</span><span class="params">(key)</span></span>：返回名称为key的hash中所有键</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hvals</span><span class="params">(key)</span></span>：返回名称为key的hash中所有键对应的value</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="title">hgetall</span><span class="params">(key)</span></span>：返回名称为key的hash中所有的键（field）及其对应的value</span><br></pre></td></tr></table></figure>
+<p>go-redis 中的 hash 操作:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// hash 操作</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">hashOperation</span><span class="params">(client *redis.Client)</span></span> &#123;</span><br><span class="line">    client.HSet(<span class="string">"user_xys"</span>, <span class="string">"name"</span>, <span class="string">"xys"</span>); <span class="comment">// 向名称为 user_xys 的 hash 中添加元素 name</span></span><br><span class="line">    client.HSet(<span class="string">"user_xys"</span>, <span class="string">"age"</span>, <span class="string">"18"</span>); <span class="comment">// 向名称为 user_xys 的 hash 中添加元素 age</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 批量地向名称为 user_test 的 hash 中添加元素 name 和 age</span></span><br><span class="line">    client.HMSet(<span class="string">"user_test"</span>, <span class="keyword">map</span>[<span class="keyword">string</span>]<span class="keyword">string</span>&#123;<span class="string">"name"</span>: <span class="string">"test"</span>, <span class="string">"age"</span>:<span class="string">"20"</span>&#125;)</span><br><span class="line">    <span class="comment">// 批量获取名为 user_test 的 hash 中的指定字段的值.</span></span><br><span class="line">    fields, err := client.HMGet(<span class="string">"user_test"</span>, <span class="string">"name"</span>, <span class="string">"age"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"fields in user_test: "</span>, fields)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 获取名为 user_xys 的 hash 中的字段个数</span></span><br><span class="line">    length, err := client.HLen(<span class="string">"user_xys"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        <span class="built_in">panic</span>(err)</span><br><span class="line">    &#125;</span><br><span class="line">    fmt.Println(<span class="string">"field count in user_xys: "</span>, length) <span class="comment">// 字段个数为2</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// 删除名为 user_test 的 age 字段</span></span><br><span class="line">    client.HDel(<span class="string">"user_test"</span>, <span class="string">"age"</span>)</span><br><span class="line">    age, err := client.HGet(<span class="string">"user_test"</span>, <span class="string">"age"</span>).Result()</span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">        fmt.Printf(<span class="string">"Get user_test age error: %v\n"</span>, err)</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        fmt.Println(<span class="string">"user_test age is: "</span>, age) <span class="comment">// 字段个数为2</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="关于连接池"><a href="#关于连接池" class="headerlink" title="关于连接池"></a>关于连接池</h3><p>redis.v4 包实现了 redis 的连接池管理, 因此我们就不需要自己手动管理 redis 的连接了.<br> 默认情况下, redis.v4 的 redis 连接池大小是10, 不过我们可以在初始化 redis 客户端时自行设置连接池的大小, 例如:</p>
+<figure class="highlight dts"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">client := redis.NewClient(<span class="variable">&amp;redis</span>.Options&#123;</span><br><span class="line"><span class="symbol">    Addr:</span>     <span class="string">"localhost:6379"</span>,</span><br><span class="line"><span class="symbol">    Password:</span> <span class="string">""</span>,</span><br><span class="line"><span class="symbol">    DB:</span>       <span class="number">0</span>,</span><br><span class="line"><span class="symbol">    PoolSize:</span> <span class="number">5</span>,</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+<p>通过 redis.Options 的 PoolSize 属性, 我们设置了 redis 连接池的大小为5.<br> 那么接下来我们来看一下这个设置有什么效果吧:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// redis.v4 的连接池管理</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">connectPool</span><span class="params">(client *redis.Client)</span></span> &#123;</span><br><span class="line">    wg := sync.WaitGroup&#123;&#125;</span><br><span class="line">    wg.Add(<span class="number">10</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i := <span class="number">0</span>; i &lt; <span class="number">10</span>; i++ &#123;</span><br><span class="line">        <span class="keyword">go</span> <span class="function"><span class="keyword">func</span><span class="params">()</span></span> &#123;</span><br><span class="line">            <span class="keyword">defer</span> wg.Done()</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> j := <span class="number">0</span>; j &lt; <span class="number">100</span>; j++ &#123;</span><br><span class="line">                client.Set(fmt.Sprintf(<span class="string">"name%d"</span>, j), fmt.Sprintf(<span class="string">"xys%d"</span>, j), <span class="number">0</span>).Err()</span><br><span class="line">                client.Get(fmt.Sprintf(<span class="string">"name%d"</span>, j)).Result()</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            fmt.Printf(<span class="string">"PoolStats, TotalConns: %d, FreeConns: %d\n"</span>, client.PoolStats().TotalConns, client.PoolStats().FreeConns);</span><br><span class="line">        &#125;()</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    wg.Wait()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>上面的例子启动了10个 routine 来不断向 redis 读写数据, 然后我们通过 client.PoolStats() 获取连接池的信息. 运行这个例子, 输出如下:</p>
+<figure class="highlight groovy"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">1</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">2</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">3</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">4</span></span><br><span class="line"></span><br><span class="line">PoolStats, <span class="string">TotalConns:</span> <span class="number">5</span>, <span class="string">FreeConns:</span> <span class="number">5</span></span><br></pre></td></tr></table></figure>
+<p>通过输出可以看到, 此时最大的连接池数量确实是 5 了, 并且一开始时, 因为 coroutine 的数量大于5, 会造成 redis 连接不足的情况(反映在 FreeConns 上就是前几次的输出 FreeConns 一直是1), 当某个 coroutine 结束后, 会释放此 redis 连接, 因此 FreeConns 会增加.</p>
+<h3 id="主函数"><a href="#主函数" class="headerlink" title="主函数"></a>主函数</h3><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">    <span class="string">"fmt"</span></span><br><span class="line">    <span class="string">"gopkg.in/redis.v4"</span></span><br><span class="line">    <span class="string">"time"</span></span><br><span class="line">    <span class="string">"sync"</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    client := createClient()</span><br><span class="line">    <span class="keyword">defer</span> client.Close()</span><br><span class="line"></span><br><span class="line">    stringOperation(client)</span><br><span class="line">    listOperation(client)</span><br><span class="line">    setOperation(client)</span><br><span class="line">    hashOperation(client)</span><br><span class="line"></span><br><span class="line">    connectPool(client)</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Just-For-Remember/" rel="tag"># Just For Remember</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/05/18/Golang 操作 Redis/" rel="next" title="Golang 操作 Redis">
+                <i class="fa fa-chevron-left"></i> Golang 操作 Redis
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Yuan">
+            
+              <p class="site-author-name" itemprop="name">Yuan</p>
+              <p class="site-description motion-element" itemprop="description">Life is a struggle. Wish you all the best !</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives/">
+              
+                  <span class="site-state-item-count">14</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yuanyh997" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yuanyh997@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#go-redis-学习指南"><span class="nav-number">1.</span> <span class="nav-text">go-redis 学习指南</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装"><span class="nav-number">1.1.</span> <span class="nav-text">安装</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#基本操作"><span class="nav-number">1.2.</span> <span class="nav-text">基本操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建客户端"><span class="nav-number">1.2.1.</span> <span class="nav-text">创建客户端</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#String-操作"><span class="nav-number">1.2.2.</span> <span class="nav-text">String 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#list-操作"><span class="nav-number">1.2.3.</span> <span class="nav-text">list 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#set-操作"><span class="nav-number">1.2.4.</span> <span class="nav-text">set 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#hash-操作"><span class="nav-number">1.2.5.</span> <span class="nav-text">hash 操作</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#关于连接池"><span class="nav-number">1.2.6.</span> <span class="nav-text">关于连接池</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主函数"><span class="nav-number">1.2.7.</span> <span class="nav-text">主函数</span></a></li></ol></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

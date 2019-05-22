@@ -129,21 +129,18 @@
 
 
 
-<meta name="description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
+<meta name="description" content="Golang 操作 Redis安装第三方开源 Redis 库1)    使用第三方开源的 redis 库: github.com/garyburd/redigo/redis 2)    在使用 Redis 前，先安装第三方 Redis 库，在 GOPATH 路径下执行安装指令: ​    go get github.com/garyburd/redigo/redis Set/Get 接口12345">
 <meta name="keywords" content="Just For Remember">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搭建流程">
-<meta property="og:url" content="http://yoursite.com/2019/04/03/博客搭建/index.html">
+<meta property="og:title" content="Golang 操作 Redis">
+<meta property="og:url" content="http://yoursite.com/2019/05/18/Golang 操作 Redis/index.html">
 <meta property="og:site_name" content="Yuan&#39;s blog">
-<meta property="og:description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
+<meta property="og:description" content="Golang 操作 Redis安装第三方开源 Redis 库1)    使用第三方开源的 redis 库: github.com/garyburd/redigo/redis 2)    在使用 Redis 前，先安装第三方 Redis 库，在 GOPATH 路径下执行安装指令: ​    go get github.com/garyburd/redigo/redis Set/Get 接口12345">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg">
-<meta property="og:image" content="c:/Users/Yuan/AppData/Local/Temp/1554295750422.png">
-<meta property="og:updated_time" content="2019-05-08T01:17:14.540Z">
+<meta property="og:updated_time" content="2019-05-22T07:14:12.119Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客搭建流程">
-<meta name="twitter:description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
-<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg">
+<meta name="twitter:title" content="Golang 操作 Redis">
+<meta name="twitter:description" content="Golang 操作 Redis安装第三方开源 Redis 库1)    使用第三方开源的 redis 库: github.com/garyburd/redigo/redis 2)    在使用 Redis 前，先安装第三方 Redis 库，在 GOPATH 路径下执行安装指令: ​    go get github.com/garyburd/redigo/redis Set/Get 接口12345">
 
 
 
@@ -173,13 +170,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/03/博客搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/18/Golang 操作 Redis/">
 
 
 
 
 
-  <title>博客搭建流程 | Yuan's blog</title>
+  <title>Golang 操作 Redis | Yuan's blog</title>
   
 
 
@@ -338,7 +335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/博客搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/18/Golang 操作 Redis/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan">
@@ -355,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">博客搭建流程</h1>
+          <h1 class="post-title" itemprop="name headline">Golang 操作 Redis</h1>
         
 
         <div class="post-meta">
@@ -367,8 +364,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-03T21:00:25+08:00">
-                2019-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-18T20:20:25+08:00">
+                2019-05-18
               </time>
             
 
@@ -390,8 +387,19 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
+                  <a href="/categories/GO/" itemprop="url" rel="index">
+                    <span itemprop="name">GO</span>
+                  </a>
+                </span>
+
+                
+                
+                  ， 
+                
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/GO/Redis/" itemprop="url" rel="index">
+                    <span itemprop="name">Redis</span>
                   </a>
                 </span>
 
@@ -421,7 +429,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  907
                 </span>
               
 
@@ -446,81 +454,27 @@
       
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。</p>
-<h2 id="Jekyll-Github"><a href="#Jekyll-Github" class="headerlink" title="Jekyll + Github"></a>Jekyll + Github</h2><p>​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。</p>
-<p>原文：<a href="https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1" target="_blank" rel="noopener">https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1</a></p>
-<p>大略看了下，好像还涉及前端的知识，由于不是主攻方向，正准备放弃的时候，发现关键词 Jekyll ！于是把Jekyll + Github 百度一下：</p>
-<p>官网：<a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">https://www.jekyll.com.cn/</a></p>
-<p>参考：<a href="https://blog.csdn.net/Hanghang_/article/details/78944672" target="_blank" rel="noopener">https://blog.csdn.net/Hanghang_/article/details/78944672</a></p>
-<p>发现流程主要是：</p>
-<ol>
-<li><p>注册Github（这个基本可以略过）</p>
-</li>
-<li><p>选择主题  主题商店：<a href="http://jekyllthemes.org/" target="_blank" rel="noopener">http://jekyllthemes.org/</a></p>
-<ol start="3">
-<li>Fork 别人的项目，把名字修改成:{username}.github.io</li>
-<li>用Git把项目下载到本地然后开始修改</li>
-<li>开始写博客</li>
-</ol>
-<p>非常凑巧的是他的博客也是用md格式转化而成的，本来这应该是个非常顺利的过程。但是问题出现在第二步，不知道为什么我选的那个主题的作者好像没公开他的源码，这就非常纠结了。其他的主题也不能说不行，就是不太合胃口，于是开始重新搜索，结果发现另外一种方式，Hexo + Github + NexT主题。</p>
-</li>
-</ol>
-<h2 id="Hexo-Github-NexT主题"><a href="#Hexo-Github-NexT主题" class="headerlink" title="Hexo + Github + NexT主题"></a>Hexo + Github + NexT主题</h2><h3 id="一-前期准备"><a href="#一-前期准备" class="headerlink" title="一. 前期准备"></a>一. 前期准备</h3><ol>
-<li><p>注册Github，添加项目，项目名字格式{username}.github.io</p>
-</li>
-<li><p>安装Git和Node.js（地址就不放了）</p>
-</li>
-<li><p>安装Hexo，建立新文件夹放博客的文件，在该目录下右键点击<code>Git Bash Here</code>，打开git的控制台窗口。操作都在git控制台进行，（当然也可以用Windows自带的控制台）</p>
-</li>
-<li><p>定位到该目录下，输入<code>npm install hexo-cli -g</code>安装Hexo。会有几个报错，无视它就行。</p>
-</li>
-<li><p>然后输入<code>npm install hexo --save</code>继续安装。</p>
-<p>安装完后输入<code>hexo -v</code>验证是否安装成功。</p>
-</li>
-<li><p>输入<code>hexo init</code>初始化文件夹，接着输入<code>npm install</code>安装必备的组件。</p>
-</li>
-<li><p>这样本地的网站配置也弄好啦，输入<code>hexo g</code>生成静态网页，然后输入<code>hexo s</code>打开本地服务器，然后浏览器打开[<a href="http://localhost:4000/]" target="_blank" rel="noopener">http://localhost:4000/]</a> 默认是4000 也可以用-p 来指定端口。</p>
-</li>
-<li><p><img src="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg" alt="img"></p>
-</li>
-<li><p>演示效果如上图（自己的忘存了。。。），我自己在这里碰见N次502 错误，最后才发现是SSR没关导致的，最后改成直连就能显示了。</p>
-</li>
-<li><p>最后按<code>ctrl+c</code>关闭本地服务器。</p>
-</li>
-</ol>
-<h3 id="二-配置Git-ssh"><a href="#二-配置Git-ssh" class="headerlink" title="二. 配置Git  ssh"></a>二. 配置Git  ssh</h3><h4 id="1-设置Git的user-name和email"><a href="#1-设置Git的user-name和email" class="headerlink" title="1. 设置Git的user name和email"></a>1. 设置Git的user name和email</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"&#123;username&#125;"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"&#123;emailaddr&#125;"</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-检查是否已经有SSH-Key"><a href="#2-检查是否已经有SSH-Key" class="headerlink" title="2. 检查是否已经有SSH Key"></a>2. 检查是否已经有SSH Key</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line"><span class="keyword">ls</span></span><br></pre></td></tr></table></figure>
-<p>列出文件看看是否有 id_isa 和 id_isa.pub 文件</p>
-<p>如果有可以跳过生成密钥这一阶段</p>
-<ol start="3">
-<li><h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4></li>
-</ol>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"&#123;email&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>​    如果不需要密码的话，连续3个回车。最后得到了两个文件：id_rsa和id_rsa.pub。</p>
-<p>默认的存储路径是：</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\U</span>sers<span class="symbol">\&#123;</span>UserName&#125;<span class="symbol">\.</span>ssh</span><br></pre></td></tr></table></figure>
-<h4 id="4-添加密钥到ssh-agent"><a href="#4-添加密钥到ssh-agent" class="headerlink" title="4. 添加密钥到ssh-agent"></a>4. 添加密钥到ssh-agent</h4><p>​    确保 ssh-agent 是可用的。ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，</p>
-<p>​    运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure>
-<p>​    添加生成的 SSH key 到 ssh-agent。</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span><span class="bash"> ~/.ssh/id_rsa</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-登陆Github-添加-ssh"><a href="#5-登陆Github-添加-ssh" class="headerlink" title="5. 登陆Github, 添加 ssh"></a>5. 登陆Github, 添加 ssh</h4><p>​    打开<a href="http://link.zhihu.com/?target=http%3A//github.com/" target="_blank" rel="noopener">github</a>，在头像下面点击<code>settings</code>，再点击<code>SSH and GPG keys</code>，新建一个SSH，名字随便。</p>
-<p>​    打开<code>C:\Users\{UserName}\.ssh\id_rsa.pub</code>，注意是隐藏文件夹，将其中的内容复制到新建的SSH中。</p>
-<p>​    输入<code>ssh -T git@github.com</code>，如果如下图所示，出现你的用户名，那就成功了。</p>
-<p><img src="C:\Users\Yuan\AppData\Local\Temp\1554295750422.png" alt="1554295750422"></p>
-<p>​    打开博客根目录下的<code>_config.yml</code>文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
-<p>​    修改最后一行的配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/&#123;username&#125;/&#123;username&#125;.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>repository修改为你自己的github项目地址。</p>
-<h3 id="三-文章相关操作"><a href="#三-文章相关操作" class="headerlink" title="三.文章相关操作"></a>三.文章相关操作</h3><h4 id="写文章、发布文章"><a href="#写文章、发布文章" class="headerlink" title="写文章、发布文章"></a>写文章、发布文章</h4><p>​    首先在博客根目录下右键打开git，安装一个扩展<code>npm install hexo-deployer-git --save</code>。</p>
-<p>​    然后输入<code>hexo new post &quot;article title&quot;</code>，新建一篇文章。</p>
-<p>​    然后打开博客目录下的<code>\source\_posts</code>的目录，可以发现下面多了一个文件夹和一个<code>.md</code>文件，一个用来存放你的图片等数据，另一个就是你的文章文件啦。</p>
-<p>​    编写完markdown文件后，根目录下输入<code>hexo g</code>生成静态网页，然后输入<code>hexo s</code>可以本地预览效果，最后输入<code>hexo d</code>上传到github上。这时打开你的github.io主页就能看到发布的文章。</p>
-<p>​    当然这一步也可以用之前写好的md文件放进去加一个Yaml格式的头在最前面里面写上标题，创建时间，等相关信息也是可以自动生成的。</p>
-<p>​    至于其他的比如换主题之类的就留到下一篇吧。这个基本上把博客给搭建完了。</p>
-<p>参考1：<a href="https://blog.csdn.net/gdutxiaoxu/article/details/53573399" target="_blank" rel="noopener">https://blog.csdn.net/gdutxiaoxu/article/details/53573399</a></p>
-<p>参考2：<a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35668237</a></p>
-<p>hexo中文官网：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
+        <h1 id="Golang-操作-Redis"><a href="#Golang-操作-Redis" class="headerlink" title="Golang 操作 Redis"></a>Golang 操作 Redis</h1><h2 id="安装第三方开源-Redis-库"><a href="#安装第三方开源-Redis-库" class="headerlink" title="安装第三方开源 Redis 库"></a>安装第三方开源 Redis 库</h2><p>1)    使用第三方开源的 redis 库: github.com/garyburd/redigo/redis</p>
+<p>2)    在使用 Redis 前，先安装第三方 Redis 库，在 GOPATH 路径下执行安装指令:</p>
+<p>​    go get github.com/garyburd/redigo/redis</p>
+<h2 id="Set-Get-接口"><a href="#Set-Get-接口" class="headerlink" title="Set/Get 接口"></a>Set/Get 接口</h2><figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main </span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/garyburd/redigo/redis"</span> <span class="comment">//引入 redis 包</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//通过 go 向 redis 写入数据和读取数据</span></span><br><span class="line">	<span class="comment">//1. 链接到 redis</span></span><br><span class="line">	conn, err := redis.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:6379"</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"redis.Dial err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">&#125;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close() <span class="comment">//关闭..</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//2. 通过 go  向 redis 写入数据  string [key-val]</span></span><br><span class="line">	_, err = conn.Do(<span class="string">"Set"</span>, <span class="string">"name"</span>, <span class="string">"tomjerry 猫猫"</span>)</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"set	err="</span>, err) <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">    </span><br><span class="line">	<span class="comment">//3. 通过 go 向 redis 读取数据 string [key-val] </span></span><br><span class="line">    r, err := redis.String(conn.Do(<span class="string">"Get"</span>, <span class="string">"name"</span>))</span><br><span class="line">	<span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"set	err="</span>, err) <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//因为 conn.Do 返回 interface&#123;&#125;</span></span><br><span class="line">	fmt.Println(<span class="string">"操作 ok "</span>, r)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="操作-Hash"><a href="#操作-Hash" class="headerlink" title="操作 Hash"></a>操作 Hash</h2><p>说明: 通过 Golang 对 Redis 操作 Hash 数据类型</p>
+<p>对 hash 数据结构，field-val 是一个一个放入和读取</p>
+<p>代码：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main </span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/garyburd/redigo/redis"</span> <span class="comment">//引入 redis 包</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//通过 go 向 redis  写入数据和读取数据</span></span><br><span class="line">	<span class="comment">//1. 链接到 redis</span></span><br><span class="line">	conn, err := redis.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:6379"</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"redis.Dial err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close() <span class="comment">//关闭..</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//2. 通过 go 向 redis 写入数据 string [key-val]</span></span><br><span class="line">	_, err = conn.Do(<span class="string">"HSet"</span>, <span class="string">"user01"</span>, <span class="string">"name"</span>, <span class="string">"john"</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"hset	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">    _, err = conn.Do(<span class="string">"HSet"</span>, <span class="string">"user01"</span>, <span class="string">"age"</span>, <span class="number">18</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"hset	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="comment">//3. 通过 go 向 redis 读取数据</span></span><br><span class="line"></span><br><span class="line">	r1, err := redis.String(conn.Do(<span class="string">"HGet"</span>,<span class="string">"user01"</span>, <span class="string">"name"</span>)) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"hget	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	r2, err := redis.Int(conn.Do(<span class="string">"HGet"</span>,<span class="string">"user01"</span>, <span class="string">"age"</span>)) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"hget	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	fmt.Printf(<span class="string">"操作 ok r1=%v r2=%v \n"</span>, r1, r2)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>批量写入hash</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main </span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/garyburd/redigo/redis"</span> <span class="comment">//引入 redis 包</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//通过 go 向 redis 写入数据和读取数据</span></span><br><span class="line">	<span class="comment">//1. 链接到 redis</span></span><br><span class="line">	conn, err := redis.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:6379"</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"redis.Dial err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close() <span class="comment">//关闭..</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">//2. 通过 go 向 redis 写入数据 string [key-val]</span></span><br><span class="line">	_, err = conn.Do(<span class="string">"HMSet"</span>, <span class="string">"user02"</span>, <span class="string">"name"</span>, <span class="string">"john"</span>, <span class="string">"age"</span>, <span class="number">19</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"HMSet	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//3. 通过 go 向 redis 读取数据</span></span><br><span class="line"></span><br><span class="line">	r, err := redis.Strings(conn.Do(<span class="string">"HMGet"</span>,<span class="string">"user02"</span>, <span class="string">"name"</span>, <span class="string">"age"</span>)) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"hget	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> r &#123; </span><br><span class="line">        fmt.Printf(<span class="string">"r[%d]=%s\n"</span>, i, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="批量-Set-Get-数据"><a href="#批量-Set-Get-数据" class="headerlink" title="批量 Set/Get 数据"></a>批量 Set/Get 数据</h2><p>说明: 通过 Golang 对 Redis 操作，一次操作可以 Set / Get 多个 key-val 数据</p>
+<p>核心代码:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">_, err = c.Do(<span class="string">"MSet"</span>, <span class="string">"name"</span>, <span class="string">"尚硅谷"</span>, <span class="string">"address"</span>, <span class="string">"北京昌平~"</span>)</span><br><span class="line">r, err := redis.Strings(c.Do(<span class="string">"MGet"</span>, <span class="string">"name"</span>, <span class="string">"address"</span>))</span><br><span class="line"><span class="keyword">for</span> _, v := <span class="keyword">range</span> r &#123; </span><br><span class="line">    fmt.Println(v)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="给数据设置有效时间"><a href="#给数据设置有效时间" class="headerlink" title="给数据设置有效时间"></a>给数据设置有效时间</h2><p>说明: 通过 Golang 对 Redis 操作，给 key-value 设置有效时间</p>
+<p>核心代码:</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//给 name 数据设置有效时间为 10s</span></span><br><span class="line">_, err = c.Do(<span class="string">"expire"</span>, <span class="string">"name"</span>, <span class="number">10</span>)</span><br></pre></td></tr></table></figure>
+<h2 id="操作-List"><a href="#操作-List" class="headerlink" title="操作 List"></a>操作 List</h2><p>说明: 通过 Golang 对 Redis 操作 List 数据类型</p>
+<p>核心代码:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">_, <span class="keyword">err</span> = c.<span class="keyword">Do</span>(<span class="string">"lpush"</span>, <span class="string">"heroList"</span>, <span class="string">"no1:宋江"</span>, 30, <span class="string">"no2:卢俊义"</span>, 28) </span><br><span class="line">r, <span class="keyword">err</span> := redis.<span class="built_in">String</span>(c.<span class="keyword">Do</span>(<span class="string">"rpop"</span>, <span class="string">"heroList"</span>))</span><br></pre></td></tr></table></figure>
+<h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><p>基本流程：</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//1.首先导入相应的Redis包</span></span><br><span class="line"><span class="keyword">package</span> main </span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"github.com/garyburd/redigo/redis"</span> <span class="comment">//引入 redis 包</span></span><br><span class="line">)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	<span class="comment">//通过 go 向 redis 写入数据和读取数据</span></span><br><span class="line">	<span class="comment">//2. 链接到 redis</span></span><br><span class="line">	conn, err := redis.Dial(<span class="string">"tcp"</span>, <span class="string">"127.0.0.1:6379"</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"redis.Dial err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">defer</span> conn.Close() <span class="comment">//关闭..</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//3. 通过 go 操作 redis 读取数据 </span></span><br><span class="line">    <span class="comment">// conn.Do("commandName",args) </span></span><br><span class="line">	_, err = conn.Do(<span class="string">"HMSet"</span>, <span class="string">"user02"</span>, <span class="string">"name"</span>, <span class="string">"john"</span>, <span class="string">"age"</span>, <span class="number">19</span>) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"HMSet	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">    <span class="comment">//4. 通过 go 向 redis 读取数据 先读取，再转换成相应类型 </span></span><br><span class="line">    <span class="comment">//redis.Type(conn.Do("commandName",args) )</span></span><br><span class="line">	r, err := redis.Strings(conn.Do(<span class="string">"HMGet"</span>,<span class="string">"user02"</span>, <span class="string">"name"</span>, <span class="string">"age"</span>)) </span><br><span class="line">    <span class="keyword">if</span> err != <span class="literal">nil</span> &#123;</span><br><span class="line">		fmt.Println(<span class="string">"hget	err="</span>, err) </span><br><span class="line">        <span class="keyword">return</span></span><br><span class="line">	&#125;</span><br><span class="line">	<span class="keyword">for</span> i, v := <span class="keyword">range</span> r &#123; </span><br><span class="line">        fmt.Printf(<span class="string">"r[%d]=%s\n"</span>, i, v)</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -551,8 +505,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/03/Java-基本知识（3）/" rel="next" title="Java 基本知识（3）">
-                <i class="fa fa-chevron-left"></i> Java 基本知识（3）
+              <a href="/2019/05/16/Redis 基本使用/" rel="next" title="Redis 基本使用">
+                <i class="fa fa-chevron-left"></i> Redis 基本使用
               </a>
             
           </div>
@@ -561,8 +515,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/03/博客优化/" rel="prev" title="博客优化">
-                博客优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/18/Golang redis 学习指南/" rel="prev" title="go-redis 学习指南">
+                go-redis 学习指南 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -713,7 +667,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jekyll-Github"><span class="nav-number">2.</span> <span class="nav-text">Jekyll + Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-Github-NexT主题"><span class="nav-number">3.</span> <span class="nav-text">Hexo + Github + NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-前期准备"><span class="nav-number">3.1.</span> <span class="nav-text">一. 前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-配置Git-ssh"><span class="nav-number">3.2.</span> <span class="nav-text">二. 配置Git  ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-设置Git的user-name和email"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. 设置Git的user name和email</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-检查是否已经有SSH-Key"><span class="nav-number">3.2.2.</span> <span class="nav-text">2. 检查是否已经有SSH Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成密钥"><span class="nav-number">3.2.3.</span> <span class="nav-text">生成密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-添加密钥到ssh-agent"><span class="nav-number">3.2.4.</span> <span class="nav-text">4. 添加密钥到ssh-agent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-登陆Github-添加-ssh"><span class="nav-number">3.2.5.</span> <span class="nav-text">5. 登陆Github, 添加 ssh</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-文章相关操作"><span class="nav-number">3.3.</span> <span class="nav-text">三.文章相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写文章、发布文章"><span class="nav-number">3.3.1.</span> <span class="nav-text">写文章、发布文章</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Golang-操作-Redis"><span class="nav-number">1.</span> <span class="nav-text">Golang 操作 Redis</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装第三方开源-Redis-库"><span class="nav-number">1.1.</span> <span class="nav-text">安装第三方开源 Redis 库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Set-Get-接口"><span class="nav-number">1.2.</span> <span class="nav-text">Set/Get 接口</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作-Hash"><span class="nav-number">1.3.</span> <span class="nav-text">操作 Hash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#批量-Set-Get-数据"><span class="nav-number">1.4.</span> <span class="nav-text">批量 Set/Get 数据</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#给数据设置有效时间"><span class="nav-number">1.5.</span> <span class="nav-text">给数据设置有效时间</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#操作-List"><span class="nav-number">1.6.</span> <span class="nav-text">操作 List</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#总结"><span class="nav-number">1.7.</span> <span class="nav-text">总结</span></a></li></ol></li></ol></div>
             
 
           </div>

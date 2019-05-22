@@ -129,21 +129,18 @@
 
 
 
-<meta name="description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
+<meta name="description" content="SQL Quick Intro基本用法12345678910111213//SQL基本用法select area form table_name where conditionupdate table_name set area = value where conditiondelete from table where conditionINSERT INTO 表名称 VALUES (值1, 值">
 <meta name="keywords" content="Just For Remember">
 <meta property="og:type" content="article">
-<meta property="og:title" content="博客搭建流程">
-<meta property="og:url" content="http://yoursite.com/2019/04/03/博客搭建/index.html">
+<meta property="og:title" content="SQL Quick Intro">
+<meta property="og:url" content="http://yoursite.com/2019/05/16/SQL Quick Intro/index.html">
 <meta property="og:site_name" content="Yuan&#39;s blog">
-<meta property="og:description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
+<meta property="og:description" content="SQL Quick Intro基本用法12345678910111213//SQL基本用法select area form table_name where conditionupdate table_name set area = value where conditiondelete from table where conditionINSERT INTO 表名称 VALUES (值1, 值">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg">
-<meta property="og:image" content="c:/Users/Yuan/AppData/Local/Temp/1554295750422.png">
-<meta property="og:updated_time" content="2019-05-08T01:17:14.540Z">
+<meta property="og:updated_time" content="2019-05-22T07:03:10.901Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="博客搭建流程">
-<meta name="twitter:description" content="引言​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。 Jekyll + Github​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。 原文：https://towardsd">
-<meta name="twitter:image" content="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg">
+<meta name="twitter:title" content="SQL Quick Intro">
+<meta name="twitter:description" content="SQL Quick Intro基本用法12345678910111213//SQL基本用法select area form table_name where conditionupdate table_name set area = value where conditiondelete from table where conditionINSERT INTO 表名称 VALUES (值1, 值">
 
 
 
@@ -173,13 +170,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/03/博客搭建/">
+  <link rel="canonical" href="http://yoursite.com/2019/05/16/SQL Quick Intro/">
 
 
 
 
 
-  <title>博客搭建流程 | Yuan's blog</title>
+  <title>SQL Quick Intro | Yuan's blog</title>
   
 
 
@@ -338,7 +335,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/03/博客搭建/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/16/SQL Quick Intro/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Yuan">
@@ -355,7 +352,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">博客搭建流程</h1>
+          <h1 class="post-title" itemprop="name headline">SQL Quick Intro</h1>
         
 
         <div class="post-meta">
@@ -367,8 +364,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-03T21:00:25+08:00">
-                2019-04-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-16T20:20:25+08:00">
+                2019-05-16
               </time>
             
 
@@ -390,8 +387,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/杂/" itemprop="url" rel="index">
-                    <span itemprop="name">杂</span>
+                  <a href="/categories/SQL/" itemprop="url" rel="index">
+                    <span itemprop="name">SQL</span>
                   </a>
                 </span>
 
@@ -421,7 +418,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  1.4k
+                  1.1k
                 </span>
               
 
@@ -446,81 +443,250 @@
       
 
       
-        <h2 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h2><p>​    今天心血来潮总算把自己的博客给搭建好了，其实这个想法早就有了，但是看着要不是用WordPress，还是Django之类的框架都比较麻烦，而且需要购买域名所以就一直没有认真去做。很多东西也只是用MarkDown写完放在本地，一直没有PO上网。</p>
-<h2 id="Jekyll-Github"><a href="#Jekyll-Github" class="headerlink" title="Jekyll + Github"></a>Jekyll + Github</h2><p>​    这次主要是因为看见有一篇微博写了怎么利用Github写个人主页。</p>
-<p>原文：<a href="https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1" target="_blank" rel="noopener">https://towardsdatascience.com/how-to-create-a-free-github-pages-website-53743d7524e1</a></p>
-<p>大略看了下，好像还涉及前端的知识，由于不是主攻方向，正准备放弃的时候，发现关键词 Jekyll ！于是把Jekyll + Github 百度一下：</p>
-<p>官网：<a href="https://www.jekyll.com.cn/" target="_blank" rel="noopener">https://www.jekyll.com.cn/</a></p>
-<p>参考：<a href="https://blog.csdn.net/Hanghang_/article/details/78944672" target="_blank" rel="noopener">https://blog.csdn.net/Hanghang_/article/details/78944672</a></p>
-<p>发现流程主要是：</p>
-<ol>
-<li><p>注册Github（这个基本可以略过）</p>
-</li>
-<li><p>选择主题  主题商店：<a href="http://jekyllthemes.org/" target="_blank" rel="noopener">http://jekyllthemes.org/</a></p>
-<ol start="3">
-<li>Fork 别人的项目，把名字修改成:{username}.github.io</li>
-<li>用Git把项目下载到本地然后开始修改</li>
-<li>开始写博客</li>
-</ol>
-<p>非常凑巧的是他的博客也是用md格式转化而成的，本来这应该是个非常顺利的过程。但是问题出现在第二步，不知道为什么我选的那个主题的作者好像没公开他的源码，这就非常纠结了。其他的主题也不能说不行，就是不太合胃口，于是开始重新搜索，结果发现另外一种方式，Hexo + Github + NexT主题。</p>
-</li>
-</ol>
-<h2 id="Hexo-Github-NexT主题"><a href="#Hexo-Github-NexT主题" class="headerlink" title="Hexo + Github + NexT主题"></a>Hexo + Github + NexT主题</h2><h3 id="一-前期准备"><a href="#一-前期准备" class="headerlink" title="一. 前期准备"></a>一. 前期准备</h3><ol>
-<li><p>注册Github，添加项目，项目名字格式{username}.github.io</p>
-</li>
-<li><p>安装Git和Node.js（地址就不放了）</p>
-</li>
-<li><p>安装Hexo，建立新文件夹放博客的文件，在该目录下右键点击<code>Git Bash Here</code>，打开git的控制台窗口。操作都在git控制台进行，（当然也可以用Windows自带的控制台）</p>
-</li>
-<li><p>定位到该目录下，输入<code>npm install hexo-cli -g</code>安装Hexo。会有几个报错，无视它就行。</p>
-</li>
-<li><p>然后输入<code>npm install hexo --save</code>继续安装。</p>
-<p>安装完后输入<code>hexo -v</code>验证是否安装成功。</p>
-</li>
-<li><p>输入<code>hexo init</code>初始化文件夹，接着输入<code>npm install</code>安装必备的组件。</p>
-</li>
-<li><p>这样本地的网站配置也弄好啦，输入<code>hexo g</code>生成静态网页，然后输入<code>hexo s</code>打开本地服务器，然后浏览器打开[<a href="http://localhost:4000/]" target="_blank" rel="noopener">http://localhost:4000/]</a> 默认是4000 也可以用-p 来指定端口。</p>
-</li>
-<li><p><img src="https://pic4.zhimg.com/80/v2-1b071f68e2db995b05470897e9730f27_hd.jpg" alt="img"></p>
-</li>
-<li><p>演示效果如上图（自己的忘存了。。。），我自己在这里碰见N次502 错误，最后才发现是SSR没关导致的，最后改成直连就能显示了。</p>
-</li>
-<li><p>最后按<code>ctrl+c</code>关闭本地服务器。</p>
-</li>
-</ol>
-<h3 id="二-配置Git-ssh"><a href="#二-配置Git-ssh" class="headerlink" title="二. 配置Git  ssh"></a>二. 配置Git  ssh</h3><h4 id="1-设置Git的user-name和email"><a href="#1-设置Git的user-name和email" class="headerlink" title="1. 设置Git的user name和email"></a>1. 设置Git的user name和email</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"&#123;username&#125;"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"&#123;emailaddr&#125;"</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-检查是否已经有SSH-Key"><a href="#2-检查是否已经有SSH-Key" class="headerlink" title="2. 检查是否已经有SSH Key"></a>2. 检查是否已经有SSH Key</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line"><span class="keyword">ls</span></span><br></pre></td></tr></table></figure>
-<p>列出文件看看是否有 id_isa 和 id_isa.pub 文件</p>
-<p>如果有可以跳过生成密钥这一阶段</p>
-<ol start="3">
-<li><h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4></li>
-</ol>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"&#123;email&#125;"</span></span><br></pre></td></tr></table></figure>
-<p>​    如果不需要密码的话，连续3个回车。最后得到了两个文件：id_rsa和id_rsa.pub。</p>
-<p>默认的存储路径是：</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\U</span>sers<span class="symbol">\&#123;</span>UserName&#125;<span class="symbol">\.</span>ssh</span><br></pre></td></tr></table></figure>
-<h4 id="4-添加密钥到ssh-agent"><a href="#4-添加密钥到ssh-agent" class="headerlink" title="4. 添加密钥到ssh-agent"></a>4. 添加密钥到ssh-agent</h4><p>​    确保 ssh-agent 是可用的。ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，</p>
-<p>​    运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure>
-<p>​    添加生成的 SSH key 到 ssh-agent。</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span><span class="bash"> ~/.ssh/id_rsa</span></span><br></pre></td></tr></table></figure>
-<h4 id="5-登陆Github-添加-ssh"><a href="#5-登陆Github-添加-ssh" class="headerlink" title="5. 登陆Github, 添加 ssh"></a>5. 登陆Github, 添加 ssh</h4><p>​    打开<a href="http://link.zhihu.com/?target=http%3A//github.com/" target="_blank" rel="noopener">github</a>，在头像下面点击<code>settings</code>，再点击<code>SSH and GPG keys</code>，新建一个SSH，名字随便。</p>
-<p>​    打开<code>C:\Users\{UserName}\.ssh\id_rsa.pub</code>，注意是隐藏文件夹，将其中的内容复制到新建的SSH中。</p>
-<p>​    输入<code>ssh -T git@github.com</code>，如果如下图所示，出现你的用户名，那就成功了。</p>
-<p><img src="C:\Users\Yuan\AppData\Local\Temp\1554295750422.png" alt="1554295750422"></p>
-<p>​    打开博客根目录下的<code>_config.yml</code>文件，这是博客的配置文件，在这里你可以修改与博客相关的各种信息。</p>
-<p>​    修改最后一行的配置：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repository: https://github.com/&#123;username&#125;/&#123;username&#125;.github.io</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
-<p>repository修改为你自己的github项目地址。</p>
-<h3 id="三-文章相关操作"><a href="#三-文章相关操作" class="headerlink" title="三.文章相关操作"></a>三.文章相关操作</h3><h4 id="写文章、发布文章"><a href="#写文章、发布文章" class="headerlink" title="写文章、发布文章"></a>写文章、发布文章</h4><p>​    首先在博客根目录下右键打开git，安装一个扩展<code>npm install hexo-deployer-git --save</code>。</p>
-<p>​    然后输入<code>hexo new post &quot;article title&quot;</code>，新建一篇文章。</p>
-<p>​    然后打开博客目录下的<code>\source\_posts</code>的目录，可以发现下面多了一个文件夹和一个<code>.md</code>文件，一个用来存放你的图片等数据，另一个就是你的文章文件啦。</p>
-<p>​    编写完markdown文件后，根目录下输入<code>hexo g</code>生成静态网页，然后输入<code>hexo s</code>可以本地预览效果，最后输入<code>hexo d</code>上传到github上。这时打开你的github.io主页就能看到发布的文章。</p>
-<p>​    当然这一步也可以用之前写好的md文件放进去加一个Yaml格式的头在最前面里面写上标题，创建时间，等相关信息也是可以自动生成的。</p>
-<p>​    至于其他的比如换主题之类的就留到下一篇吧。这个基本上把博客给搭建完了。</p>
-<p>参考1：<a href="https://blog.csdn.net/gdutxiaoxu/article/details/53573399" target="_blank" rel="noopener">https://blog.csdn.net/gdutxiaoxu/article/details/53573399</a></p>
-<p>参考2：<a href="https://zhuanlan.zhihu.com/p/35668237" target="_blank" rel="noopener">https://zhuanlan.zhihu.com/p/35668237</a></p>
-<p>hexo中文官网：<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="noopener">https://hexo.io/zh-cn/docs/</a></p>
+        <h1 id="SQL-Quick-Intro"><a href="#SQL-Quick-Intro" class="headerlink" title="SQL Quick Intro"></a>SQL Quick Intro</h1><h2 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">//SQL基本用法</span><br><span class="line"><span class="keyword">select</span> area <span class="keyword">form</span> table_name <span class="keyword">where</span> condition</span><br><span class="line"></span><br><span class="line"><span class="keyword">update</span> table_name <span class="keyword">set</span> area = <span class="keyword">value</span> <span class="keyword">where</span> condition</span><br><span class="line"></span><br><span class="line"><span class="keyword">delete</span> <span class="keyword">from</span> <span class="keyword">table</span> <span class="keyword">where</span> condition</span><br><span class="line"></span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> 表名称 <span class="keyword">VALUES</span> (值<span class="number">1</span>, 值<span class="number">2</span>,....)</span><br><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> table_name (列<span class="number">1</span>, 列<span class="number">2</span>,...) <span class="keyword">VALUES</span> (值<span class="number">1</span>, 值<span class="number">2</span>,....)</span><br><span class="line"></span><br><span class="line"><span class="keyword">drop</span> <span class="keyword">table</span>/<span class="keyword">database</span></span><br><span class="line">//清空数据</span><br><span class="line"><span class="keyword">TRUNCATE</span> <span class="keyword">TABLE</span> 表名称</span><br></pre></td></tr></table></figure>
+<h2 id="SQL关键字"><a href="#SQL关键字" class="headerlink" title="SQL关键字"></a>SQL关键字</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line">//关键字</span><br><span class="line"></span><br><span class="line">and/ or /not</span><br><span class="line"></span><br><span class="line">order by desc asc</span><br><span class="line"></span><br><span class="line">like pattern  </span><br><span class="line">//其中通配符  %为替代多个 _替代一个 [charlist] 其中任何一个 [！charlist] 不是其中任何一个</span><br><span class="line"></span><br><span class="line">in(val1,val2,...)</span><br><span class="line"></span><br><span class="line">between val1 and val2 </span><br><span class="line"></span><br><span class="line">//表的 SQL Alias 语法</span><br><span class="line">SELECT column_name(s)</span><br><span class="line">FROM table_name</span><br><span class="line">AS alias_name</span><br><span class="line"></span><br><span class="line">列的 SQL Alias 语法</span><br><span class="line">SELECT column_name AS alias_name</span><br><span class="line">FROM table_name</span><br><span class="line"></span><br><span class="line">//SQL UNION 语法 加上ALL允许重复值</span><br><span class="line"></span><br><span class="line">SELECT column_name(s) FROM table_name1</span><br><span class="line">UNION(ALL)</span><br><span class="line">SELECT column_name(s) FROM table_name2</span><br><span class="line"></span><br><span class="line">//SQL SELECT INTO 语法</span><br><span class="line"></span><br><span class="line">SELECT column_name(s)</span><br><span class="line">INTO new_table_name [IN externaldatabase] </span><br><span class="line">FROM old_tablename</span><br><span class="line"></span><br><span class="line">//SQL CREATE DATABASE 语法</span><br><span class="line">CREATE DATABASE database_name</span><br><span class="line"></span><br><span class="line">//SQL CREATE TABLE 语法</span><br><span class="line">CREATE TABLE 表名称</span><br><span class="line">(</span><br><span class="line">列名称1 数据类型,</span><br><span class="line">列名称2 数据类型,</span><br><span class="line">列名称3 数据类型,</span><br><span class="line">....</span><br><span class="line">)</span><br><span class="line"></span><br><span class="line">//SQL GROUP BY 语法</span><br><span class="line">SELECT column_name, aggregate_function(column_name)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE column_name operator value</span><br><span class="line">GROUP BY column_name</span><br><span class="line"></span><br><span class="line">//SQL HAVING 语法</span><br><span class="line">SELECT column_name, aggregate_function(column_name)</span><br><span class="line">FROM table_name</span><br><span class="line">WHERE column_name operator value</span><br><span class="line">GROUP BY column_name</span><br><span class="line">HAVING aggregate_function(column_name) operator value</span><br></pre></td></tr></table></figure>
+<h2 id="SQL-Join-用法"><a href="#SQL-Join-用法" class="headerlink" title="SQL Join()用法"></a>SQL Join()用法</h2><p>可以使用的 JOIN 类型，以及它们之间的差异。</p>
+<p>JOIN（INNER JOIN）: 如果表中有至少一个匹配，则返回行<br>LEFT JOIN: 即使右表中没有匹配，也从左表返回所有的行<br>RIGHT JOIN: 即使左表中没有匹配，也从右表返回所有的行<br>FULL JOIN: 只要其中一个表中存在匹配，就返回行</p>
+<figure class="highlight oxygene"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//JOIN 关键字语法</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">SELECT</span> column_name(s)</span><br><span class="line"><span class="keyword">FROM</span> table_name1</span><br><span class="line">（XX）<span class="keyword">JOIN</span> table_name2 </span><br><span class="line"><span class="keyword">ON</span> table_name1.column_name=table_name2.column_name</span><br></pre></td></tr></table></figure>
+<h2 id="SQL数据类型"><a href="#SQL数据类型" class="headerlink" title="SQL数据类型"></a>SQL数据类型</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">数据类型</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">integer(size)int(size)smallint(size)tinyint(size)</td>
+<td style="text-align:left">仅容纳整数。在括号内规定数字的最大位数。</td>
+</tr>
+<tr>
+<td style="text-align:left">decimal(size,d)numeric(size,d)</td>
+<td style="text-align:left">容纳带有小数的数字。”size” 规定数字的最大位数。”d” 规定小数点右侧的最大位数。</td>
+</tr>
+<tr>
+<td style="text-align:left">char(size)</td>
+<td style="text-align:left">容纳固定长度的字符串（可容纳字母、数字以及特殊字符）。在括号中规定字符串的长度。</td>
+</tr>
+<tr>
+<td style="text-align:left">varchar(size)</td>
+<td style="text-align:left">容纳可变长度的字符串（可容纳字母、数字以及特殊的字符）。在括号中规定字符串的最大长度。</td>
+</tr>
+<tr>
+<td style="text-align:left">date(yyyymmdd)</td>
+<td style="text-align:left">容纳日期。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SQL-约束"><a href="#SQL-约束" class="headerlink" title="SQL 约束"></a>SQL 约束</h2><p>约束用于限制加入表的数据的类型。</p>
+<p>可以在创建表时规定约束（通过 CREATE TABLE 语句），或者在表创建之后也可以（通过 ALTER TABLE 语句）。</p>
+<p>我们将主要探讨以下几种约束：</p>
+<ul>
+<li>NOT NULL</li>
+<li>UNIQUE</li>
+<li>PRIMARY KEY</li>
+<li>FOREIGN KEY</li>
+<li>CHECK</li>
+<li>DEFAULT</li>
+</ul>
+<h2 id="SQL函数"><a href="#SQL函数" class="headerlink" title="SQL函数"></a>SQL函数</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">函数</th>
+<th style="text-align:left">描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_avg.asp" target="_blank" rel="noopener">AVG(column)</a></td>
+<td style="text-align:left">返回某列的平均值</td>
+</tr>
+<tr>
+<td style="text-align:left">BINARY_CHECKSUM</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">CHECKSUM</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">CHECKSUM_AGG</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_count.asp" target="_blank" rel="noopener">COUNT(column)</a></td>
+<td style="text-align:left">返回某列的行数（不包括NULL值）</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_count_ast.asp" target="_blank" rel="noopener">COUNT(*)</a></td>
+<td style="text-align:left">返回被选行数</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_count_distinct.asp" target="_blank" rel="noopener">COUNT(DISTINCT column)</a></td>
+<td style="text-align:left">返回相异结果的数目</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_first.asp" target="_blank" rel="noopener">FIRST(column)</a></td>
+<td style="text-align:left">返回在指定的域中第一个记录的值（SQLServer2000 不支持）</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_last.asp" target="_blank" rel="noopener">LAST(column)</a></td>
+<td style="text-align:left">返回在指定的域中最后一个记录的值（SQLServer2000 不支持）</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_max.asp" target="_blank" rel="noopener">MAX(column)</a></td>
+<td style="text-align:left">返回某列的最高值</td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_min.asp" target="_blank" rel="noopener">MIN(column)</a></td>
+<td style="text-align:left">返回某列的最低值</td>
+</tr>
+<tr>
+<td style="text-align:left">STDEV(column)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">STDEVP(column)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><a href="http://www.w3school.com.cn/sql/sql_func_sum.asp" target="_blank" rel="noopener">SUM(column)</a></td>
+<td style="text-align:left">返回某列的总和</td>
+</tr>
+<tr>
+<td style="text-align:left">VAR(column)</td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left">VARP(column)</td>
+</tr>
+</tbody>
+</table>
+<h2 id="SQL-语句速查"><a href="#SQL-语句速查" class="headerlink" title="SQL 语句速查"></a>SQL 语句速查</h2><table>
+<thead>
+<tr>
+<th style="text-align:left">语句</th>
+<th style="text-align:left">语法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left">AND / OR</td>
+<td style="text-align:left">SELECT column_name(s) FROM table_name WHERE condition AND\</td>
+<td>OR condition</td>
+</tr>
+<tr>
+<td style="text-align:left">ALTER TABLE (add column)</td>
+<td style="text-align:left">ALTER TABLE table_name  ADD column_name datatype</td>
+</tr>
+<tr>
+<td style="text-align:left">ALTER TABLE (drop column)</td>
+<td style="text-align:left">ALTER TABLE table_name  DROP COLUMN column_name</td>
+</tr>
+<tr>
+<td style="text-align:left">AS (alias for column)</td>
+<td style="text-align:left">SELECT column_name AS column_alias FROM table_name</td>
+</tr>
+<tr>
+<td style="text-align:left">AS (alias for table)</td>
+<td style="text-align:left">SELECT column_name FROM table_name  AS table_alias</td>
+</tr>
+<tr>
+<td style="text-align:left">BETWEEN</td>
+<td style="text-align:left">SELECT column_name(s) FROM table_name WHERE column_name BETWEEN value1 AND value2</td>
+</tr>
+<tr>
+<td style="text-align:left">CREATE DATABASE</td>
+<td style="text-align:left">CREATE DATABASE database_name</td>
+</tr>
+<tr>
+<td style="text-align:left">CREATE INDEX</td>
+<td style="text-align:left">CREATE INDEX index_name ON table_name (column_name)</td>
+</tr>
+<tr>
+<td style="text-align:left">CREATE TABLE</td>
+<td style="text-align:left">CREATE TABLE table_name ( column_name1 data_type, column_name2 data_type, ……. )</td>
+</tr>
+<tr>
+<td style="text-align:left">CREATE UNIQUE INDEX</td>
+<td style="text-align:left">CREATE UNIQUE INDEX index_name ON table_name (column_name)</td>
+</tr>
+<tr>
+<td style="text-align:left">CREATE VIEW</td>
+<td style="text-align:left">CREATE VIEW view_name AS SELECT column_name(s) FROM table_name WHERE condition</td>
+</tr>
+<tr>
+<td style="text-align:left">DELETE FROM</td>
+<td style="text-align:left">DELETE FROM table_name  (<strong>Note:</strong> Deletes the entire table!!)<em>or</em>DELETE FROM table_name WHERE condition</td>
+</tr>
+<tr>
+<td style="text-align:left">DROP DATABASE</td>
+<td style="text-align:left">DROP DATABASE database_name</td>
+</tr>
+<tr>
+<td style="text-align:left">DROP INDEX</td>
+<td style="text-align:left">DROP INDEX table_name.index_name</td>
+</tr>
+<tr>
+<td style="text-align:left">DROP TABLE</td>
+<td style="text-align:left">DROP TABLE table_name</td>
+</tr>
+<tr>
+<td style="text-align:left">GROUP BY</td>
+<td style="text-align:left">SELECT column_name1,SUM(column_name2) FROM table_name GROUP BY column_name1</td>
+</tr>
+<tr>
+<td style="text-align:left">HAVING</td>
+<td style="text-align:left">SELECT column_name1,SUM(column_name2) FROM table_name GROUP BY column_name1 HAVING SUM(column_name2) condition value</td>
+</tr>
+<tr>
+<td style="text-align:left">IN</td>
+<td style="text-align:left">SELECT column_name(s) FROM table_name WHERE column_name IN (value1,value2,..)</td>
+</tr>
+<tr>
+<td style="text-align:left">INSERT INTO</td>
+<td style="text-align:left">INSERT INTO table_name VALUES (value1, value2,….)<em>or</em>INSERT INTO table_name (column_name1, column_name2,…) VALUES (value1, value2,….)</td>
+</tr>
+<tr>
+<td style="text-align:left">LIKE</td>
+<td style="text-align:left">SELECT column_name(s) FROM table_name WHERE column_name LIKE pattern</td>
+</tr>
+<tr>
+<td style="text-align:left">ORDER BY</td>
+<td style="text-align:left">SELECT column_name(s) FROM table_name ORDER BY column_name [ASC\</td>
+<td>DESC]</td>
+</tr>
+<tr>
+<td style="text-align:left">SELECT</td>
+<td style="text-align:left">SELECT column_name(s) FROM table_name</td>
+</tr>
+<tr>
+<td style="text-align:left">SELECT *</td>
+<td style="text-align:left">SELECT * FROM table_name</td>
+</tr>
+<tr>
+<td style="text-align:left">SELECT DISTINCT</td>
+<td style="text-align:left">SELECT DISTINCT column_name(s) FROM table_name</td>
+</tr>
+<tr>
+<td style="text-align:left">SELECT INTO (used to create backup copies of tables)</td>
+<td style="text-align:left">SELECT <em> INTO new_table_name FROM original_table_name</em>or*SELECT column_name(s) INTO new_table_name FROM original_table_name</td>
+</tr>
+<tr>
+<td style="text-align:left">TRUNCATE TABLE (deletes only the data inside the table)</td>
+<td style="text-align:left">TRUNCATE TABLE table_name</td>
+</tr>
+<tr>
+<td style="text-align:left">UPDATE</td>
+<td style="text-align:left">UPDATE table_name SET column_name=new_value [, column_name=new_value] WHERE column_name=some_value</td>
+</tr>
+<tr>
+<td style="text-align:left">WHERE</td>
+<td style="text-align:left">SELECT column_name(s) FROM table_name WHERE condition</td>
+</tr>
+</tbody>
+</table>
+<h2 id="一个CASE的例子"><a href="#一个CASE的例子" class="headerlink" title="一个CASE的例子"></a>一个CASE的例子</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">Max</span>(<span class="keyword">id</span>) <span class="keyword">from</span>  apply_data <span class="keyword">as</span> d;</span><br><span class="line"><span class="keyword">UPDATE</span> apply_data</span><br><span class="line"><span class="keyword">SET</span> pingshen = <span class="keyword">case</span> <span class="keyword">id</span>%<span class="number">8</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">0</span> <span class="keyword">THEN</span> <span class="string">"253"</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">1</span> <span class="keyword">THEN</span> <span class="string">"254"</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">2</span> <span class="keyword">THEN</span> <span class="string">"255"</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">3</span> <span class="keyword">THEN</span> <span class="string">"256"</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">4</span> <span class="keyword">THEN</span> <span class="string">"257"</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">5</span> <span class="keyword">THEN</span> <span class="string">"258"</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">6</span> <span class="keyword">THEN</span> <span class="string">"259"</span></span><br><span class="line">	<span class="keyword">WHEN</span> <span class="number">7</span> <span class="keyword">THEN</span> <span class="string">"260"</span></span><br><span class="line">	<span class="keyword">END</span></span><br><span class="line"><span class="keyword">WHERE</span> <span class="keyword">id</span> <span class="keyword">BETWEEN</span> <span class="number">1</span> <span class="keyword">and</span> d</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -551,8 +717,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/03/Java-基本知识（3）/" rel="next" title="Java 基本知识（3）">
-                <i class="fa fa-chevron-left"></i> Java 基本知识（3）
+              <a href="/2019/05/07/Git使用/" rel="next" title="Git使用">
+                <i class="fa fa-chevron-left"></i> Git使用
               </a>
             
           </div>
@@ -561,8 +727,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/04/03/博客优化/" rel="prev" title="博客优化">
-                博客优化 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/05/16/Redis 基本使用/" rel="prev" title="Redis 基本使用">
+                Redis 基本使用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -713,7 +879,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#引言"><span class="nav-number">1.</span> <span class="nav-text">引言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Jekyll-Github"><span class="nav-number">2.</span> <span class="nav-text">Jekyll + Github</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo-Github-NexT主题"><span class="nav-number">3.</span> <span class="nav-text">Hexo + Github + NexT主题</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#一-前期准备"><span class="nav-number">3.1.</span> <span class="nav-text">一. 前期准备</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二-配置Git-ssh"><span class="nav-number">3.2.</span> <span class="nav-text">二. 配置Git  ssh</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1-设置Git的user-name和email"><span class="nav-number">3.2.1.</span> <span class="nav-text">1. 设置Git的user name和email</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2-检查是否已经有SSH-Key"><span class="nav-number">3.2.2.</span> <span class="nav-text">2. 检查是否已经有SSH Key</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#生成密钥"><span class="nav-number">3.2.3.</span> <span class="nav-text">生成密钥</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4-添加密钥到ssh-agent"><span class="nav-number">3.2.4.</span> <span class="nav-text">4. 添加密钥到ssh-agent</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-登陆Github-添加-ssh"><span class="nav-number">3.2.5.</span> <span class="nav-text">5. 登陆Github, 添加 ssh</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三-文章相关操作"><span class="nav-number">3.3.</span> <span class="nav-text">三.文章相关操作</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#写文章、发布文章"><span class="nav-number">3.3.1.</span> <span class="nav-text">写文章、发布文章</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#SQL-Quick-Intro"><span class="nav-number">1.</span> <span class="nav-text">SQL Quick Intro</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#基本用法"><span class="nav-number">1.1.</span> <span class="nav-text">基本用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL关键字"><span class="nav-number">1.2.</span> <span class="nav-text">SQL关键字</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-Join-用法"><span class="nav-number">1.3.</span> <span class="nav-text">SQL Join()用法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL数据类型"><span class="nav-number">1.4.</span> <span class="nav-text">SQL数据类型</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-约束"><span class="nav-number">1.5.</span> <span class="nav-text">SQL 约束</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL函数"><span class="nav-number">1.6.</span> <span class="nav-text">SQL函数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#SQL-语句速查"><span class="nav-number">1.7.</span> <span class="nav-text">SQL 语句速查</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个CASE的例子"><span class="nav-number">1.8.</span> <span class="nav-text">一个CASE的例子</span></a></li></ol></li></ol></div>
             
 
           </div>
