@@ -1,0 +1,1303 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="zh-Hans">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+      
+    
+
+    
+  
+
+  
+    
+    
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,300italic,400,400italic,700,700italic|Roboto Slab:300,300italic,400,400italic,700,700italic|Microsoft YaHei:300,300italic,400,400italic,700,700italic|Lobster Two:300,300italic,400,400italic,700,700italic|PT Mono:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../../images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="../../../../images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Just For Remember,">
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="strconv 包中的函数和方法// atob.go -———————————————————– // ParseBool 将字符串转换为布尔值// 它接受真值：1, t, T, TRUE, true, True// 它接受假值：0, f, F, FALSE, false, False.// 其它任何值都返回一个错误func ParseBool(str string) (value bool, e">
+<meta name="keywords" content="Just For Remember">
+<meta property="og:type" content="article">
+<meta property="og:title" content="strconv 包中的函数和方法">
+<meta property="og:url" content="http://yuanyh997.github.io/2019/05/22/strconv 包中的函数和方法/index.html">
+<meta property="og:site_name" content="Yuan&#39;s blog">
+<meta property="og:description" content="strconv 包中的函数和方法// atob.go -———————————————————– // ParseBool 将字符串转换为布尔值// 它接受真值：1, t, T, TRUE, true, True// 它接受假值：0, f, F, FALSE, false, False.// 其它任何值都返回一个错误func ParseBool(str string) (value bool, e">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:updated_time" content="2019-06-27T02:57:09.046Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="strconv 包中的函数和方法">
+<meta name="twitter:description" content="strconv 包中的函数和方法// atob.go -———————————————————– // ParseBool 将字符串转换为布尔值// 它接受真值：1, t, T, TRUE, true, True// 它接受假值：0, f, F, FALSE, false, False.// 其它任何值都返回一个错误func ParseBool(str string) (value bool, e">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yuanyh997.github.io/2019/05/22/strconv 包中的函数和方法/">
+
+
+
+
+
+  <title>strconv 包中的函数和方法 | Yuan's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Yuan's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuanyh997.github.io">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="../../../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">strconv 包中的函数和方法</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-22T21:00:25+08:00">
+                2019-05-22
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="../../../../categories/Go/" itemprop="url" rel="index">
+                    <span itemprop="name">Go</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2.8k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="strconv-包中的函数和方法"><a href="#strconv-包中的函数和方法" class="headerlink" title="strconv 包中的函数和方法"></a>strconv 包中的函数和方法</h1><p>// atob.go</p>
+<p>-———————————————————–</p>
+<p>// ParseBool 将字符串转换为布尔值<br>// 它接受真值：1, t, T, TRUE, true, True<br>// 它接受假值：0, f, F, FALSE, false, False.<br>// 其它任何值都返回一个错误<br>func ParseBool(str string) (value bool, err error)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"strconv"</span></span><br><span class="line">)</span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"1"</span>))    <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"t"</span>))    <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"T"</span>))    <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"true"</span>)) <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"True"</span>)) <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"TRUE"</span>)) <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"TRue"</span>))</span><br><span class="line">	<span class="comment">// false strconv.ParseBool: parsing "TRue": invalid syntax</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"0"</span>))     <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"f"</span>))     <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"F"</span>))     <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"false"</span>)) <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"False"</span>)) <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"FALSE"</span>)) <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.ParseBool(<span class="string">"FALse"</span>))</span><br><span class="line">	<span class="comment">// false strconv.ParseBool: parsing "FAlse": invalid syntax</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// FormatBool 将布尔值转换为字符串 “true” 或 “false”</p>
+<p>func FormatBool(b bool) string</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(strconv.FormatBool(<span class="number">0</span> &lt; <span class="number">1</span>)) <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.FormatBool(<span class="number">0</span> &gt; <span class="number">1</span>)) <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// AppendBool 将布尔值 b 转换为字符串 “true” 或 “false”<br>// 然后将结果追加到 dst 的尾部，返回追加后的 []byte<br>func AppendBool(dst []byte, b bool) []byte</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	rst := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">	rst = strconv.AppendBool(rst, <span class="number">0</span> &lt; <span class="number">1</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%s\n"</span>, rst) <span class="comment">// true</span></span><br><span class="line">	rst = strconv.AppendBool(rst, <span class="number">0</span> &gt; <span class="number">1</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%s\n"</span>, rst) <span class="comment">// truefalse</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  // atof.go</p>
+<p>-———————————————————–</p>
+<p>// ParseFloat 将字符串转换为浮点数<br>// s：要转换的字符串<br>// bitSize：指定浮点类型（32:float32、64:float64）<br>// 如果 s 是合法的格式，而且接近一个浮点值，<br>// 则返回浮点数的四舍五入值（依据 IEEE754 的四舍五入标准）<br>// 如果 s 不是合法的格式，则返回“语法错误”<br>// 如果转换结果超出 bitSize 范围，则返回“超出范围”<br>func ParseFloat(s string, bitSize int) (f float64, err error)</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">func</span> <span class="selector-tag">main</span>() &#123;</span><br><span class="line">	<span class="attribute">s </span>:= <span class="string">"0.12345678901234567890"</span></span><br><span class="line">	f, err := strconv.<span class="built_in">ParseFloat</span>(s, 32)</span><br><span class="line">	fmt.<span class="built_in">Println</span>(f, err)          // <span class="number">0.12345679104328156</span></span><br><span class="line">	fmt.<span class="built_in">Println</span>(float32(f), err) // <span class="number">0.12345679</span></span><br><span class="line">	f, err = strconv.<span class="built_in">ParseFloat</span>(s, 64)</span><br><span class="line">	fmt.<span class="built_in">Println</span>(f, err) // <span class="number">0.12345678901234568</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  // atoi.go</p>
+<p>-———————————————————–</p>
+<p>// ErrRange 表示值超出范围<br>var ErrRange = errors.New(“value out of range”)</p>
+<p>// ErrSyntax 表示语法不正确<br>var ErrSyntax = errors.New(“invalid syntax”)</p>
+<p>// NumError 记录转换失败<br>type NumError struct {<br>Func string // 失败的函数名(ParseBool, ParseInt, ParseUint, ParseFloat)<br>Num string // 输入的值<br>Err error // 失败的原因(ErrRange, ErrSyntax)<br>}</p>
+<p>// int 或 uint 类型的长度(32 或 64)<br>const IntSize = intSize<br>const intSize = 32 &lt;&lt; uint(^uint(0)&gt;&gt;63)</p>
+<p>// 实现 Error 接口，输出错误信息<br>func (e *NumError) Error() string  </p>
+<p>  -———————————————————–</p>
+<p>// ParseInt 将字符串转换为 int 类型<br>// s：要转换的字符串<br>// base：进位制（2 进制到 36 进制）<br>// bitSize：指定整数类型（0:int、8:int8、16:int16、32:int32、64:int64）<br>// 返回转换后的结果和转换时遇到的错误<br>// 如果 base 为 0，则根据字符串的前缀判断进位制（0x:16，0:8，其它:10）<br>func ParseInt(s string, base int, bitSize int) (i int64, err error)  </p>
+<figure class="highlight lsl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">func main() &#123;</span><br><span class="line">	fmt.Println(strconv.ParseInt(<span class="string">"123"</span>, <span class="number">10</span>, <span class="number">8</span>))</span><br><span class="line">	<span class="comment">// 123</span></span><br><span class="line">	fmt.Println(strconv.ParseInt(<span class="string">"12345"</span>, <span class="number">10</span>, <span class="number">8</span>))</span><br><span class="line">	<span class="comment">// 127 strconv.ParseInt: parsing "12345": value out of range</span></span><br><span class="line">	fmt.Println(strconv.ParseInt(<span class="string">"2147483647"</span>, <span class="number">10</span>, <span class="number">0</span>))</span><br><span class="line">	<span class="comment">// 2147483647</span></span><br><span class="line">	fmt.Println(strconv.ParseInt(<span class="string">"0xFF"</span>, <span class="number">16</span>, <span class="number">0</span>))</span><br><span class="line">	<span class="comment">// 0 strconv.ParseInt: parsing "0xFF": invalid syntax</span></span><br><span class="line">	fmt.Println(strconv.ParseInt(<span class="string">"FF"</span>, <span class="number">16</span>, <span class="number">0</span>))</span><br><span class="line">	<span class="comment">// 255</span></span><br><span class="line">	fmt.Println(strconv.ParseInt(<span class="string">"0xFF"</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line">	<span class="comment">// 255</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// ParseUint 功能同 ParseInt 一样，只不过返回 uint 类型整数</p>
+<p>func ParseUint(s string, base int, bitSize int) (n uint64, err error)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	fmt.Println(strconv.ParseUint("FF", 16, 8))</span><br><span class="line">	// 255</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<font color="red">// Atoi 相当于 ParseInt(s, 10, 0)</font>
+
+<p>// 通常使用这个函数，而不使用 ParseInt</p>
+<p>func Atoi(s string) (i int, err error)</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line">	fmt.Println(strconv.Atoi("2147483647"))</span><br><span class="line">	// 2147483647</span><br><span class="line">	fmt.Println(strconv.Atoi("2147483648"))</span><br><span class="line">	// 2147483647 strconv.ParseInt: parsing "2147483648": value out of range</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  // ftoa.go</p>
+<p>-———————————————————–</p>
+<p>// FormatFloat 将浮点数 f 转换为字符串值<br>// f：要转换的浮点数<br>// fmt：格式标记（b、e、E、f、g、G）<br>// prec：精度（数字部分的长度，不包括指数部分）<br>// bitSize：指定浮点类型（32:float32、64:float64）<br>//<br>// 格式标记：<br>// ‘b’ (-ddddp±ddd，二进制指数)<br>// ‘e’ (-d.dddde±dd，十进制指数)<br>// ‘E’ (-d.ddddE±dd，十进制指数)<br>// ‘f’ (-ddd.dddd，没有指数)<br>// ‘g’ (‘e’:大指数，’f’:其它情况)<br>// ‘G’ (‘E’:大指数，’f’:其它情况)<br>//<br>// 如果格式标记为 ‘e’，’E’和’f’，则 prec 表示小数点后的数字位数<br>// 如果格式标记为 ‘g’，’G’，则 prec 表示总的数字位数（整数部分+小数部分）<br>func FormatFloat(f float64, fmt byte, prec, bitSize int) string  </p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> main</span><br><span class="line"> </span><br><span class="line"><span class="keyword">import</span> (</span><br><span class="line">	<span class="string">"fmt"</span></span><br><span class="line">	<span class="string">"strconv"</span></span><br><span class="line">)</span><br><span class="line"> </span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	f := <span class="number">100.12345678901234567890123456789</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'b'</span>, <span class="number">5</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 13123382p-17</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'e'</span>, <span class="number">5</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 1.00123e+02</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'E'</span>, <span class="number">5</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 1.00123E+02</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'f'</span>, <span class="number">5</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 100.12346</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'g'</span>, <span class="number">5</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 100.12</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'G'</span>, <span class="number">5</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 100.12</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'b'</span>, <span class="number">30</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 13123382p-17</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'e'</span>, <span class="number">30</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 1.001234588623046875000000000000e+02</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'E'</span>, <span class="number">30</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 1.001234588623046875000000000000E+02</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'f'</span>, <span class="number">30</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 100.123458862304687500000000000000</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'g'</span>, <span class="number">30</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 100.1234588623046875</span></span><br><span class="line">	fmt.Println(strconv.FormatFloat(f, <span class="string">'G'</span>, <span class="number">30</span>, <span class="number">32</span>))</span><br><span class="line">	<span class="comment">// 100.1234588623046875</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// AppendFloat 将浮点数 f 转换为字符串值，并将转换结果追加到 dst 的尾部</p>
+<p>// 返回追加后的 []byte</p>
+<p>func AppendFloat(dst []byte, f float64, fmt byte, prec int, bitSize int) []byte</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	f := <span class="number">100.12345678901234567890123456789</span></span><br><span class="line">	b := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">	b = strconv.AppendFloat(b, f, <span class="string">'f'</span>, <span class="number">5</span>, <span class="number">32</span>)</span><br><span class="line">	b = <span class="built_in">append</span>(b, <span class="string">" "</span>...)</span><br><span class="line">	b = strconv.AppendFloat(b, f, <span class="string">'e'</span>, <span class="number">5</span>, <span class="number">32</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b) <span class="comment">// 100.12346 1.00123e+0</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>  // itoa.go</p>
+<p>-———————————————————–</p>
+<p>// FormatUint 将 int 型整数 i 转换为字符串形式<br>// base：进位制（2 进制到 36 进制）<br>// 大于 10 进制的数，返回值使用小写字母 ‘a’ 到 ‘z’<br>func FormatInt(i int64, base int) string  </p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="selector-tag">func</span> <span class="selector-tag">main</span>() &#123;</span><br><span class="line">	<span class="attribute">i </span>:= <span class="built_in">int64</span>(-2048)</span><br><span class="line">	fmt.<span class="built_in">Println</span>(strconv.FormatInt(i, 2))  // -<span class="number">100000000000</span></span><br><span class="line">	fmt.<span class="built_in">Println</span>(strconv.FormatInt(i, 8))  // -<span class="number">4000</span></span><br><span class="line">	fmt.<span class="built_in">Println</span>(strconv.FormatInt(i, 10)) // -<span class="number">2048</span></span><br><span class="line">	fmt.<span class="built_in">Println</span>(strconv.FormatInt(i, 16)) // -<span class="number">800</span></span><br><span class="line">	fmt.<span class="built_in">Println</span>(strconv.FormatInt(i, 36)) // -<span class="number">1</span>kw</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// FormatUint 将 uint 型整数 i 转换为字符串形式<br>// base：进位制（2 进制到 36 进制）<br>// 大于 10 进制的数，返回值使用小写字母 ‘a’ 到 ‘z’<br>func FormatUint(i uint64, base int) string</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	i := <span class="keyword">uint64</span>(<span class="number">2048</span>)</span><br><span class="line">	fmt.Println(strconv.FormatUint(i, <span class="number">2</span>))  <span class="comment">// 100000000000</span></span><br><span class="line">	fmt.Println(strconv.FormatUint(i, <span class="number">8</span>))  <span class="comment">// 4000</span></span><br><span class="line">	fmt.Println(strconv.FormatUint(i, <span class="number">10</span>)) <span class="comment">// 2048</span></span><br><span class="line">	fmt.Println(strconv.FormatUint(i, <span class="number">16</span>)) <span class="comment">// 800</span></span><br><span class="line">	fmt.Println(strconv.FormatUint(i, <span class="number">36</span>)) <span class="comment">// 1kw</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// Itoa 相当于 FormatInt(i, 10)</p>
+<p>func Itoa(i int) string</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(strconv.Itoa(<span class="number">-2048</span>)) <span class="comment">// -2048</span></span><br><span class="line">	fmt.Println(strconv.Itoa(<span class="number">2048</span>))  <span class="comment">// 2048</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// AppendInt 将 int 型整数 i 转换为字符串形式，并追加到 dst 的尾部</p>
+<p>// i：要转换的字符串</p>
+<p>// base：进位制</p>
+<p>// 返回追加后的 []byte</p>
+<p>func AppendInt(dst []byte, i int64, base int) []byte</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	b := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">	b = strconv.AppendInt(b, <span class="number">-2048</span>, <span class="number">16</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b) <span class="comment">// -800</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// AppendUint 将 uint 型整数 i 转换为字符串形式，并追加到 dst 的尾部<br>// i：要转换的字符串<br>// base：进位制<br>// 返回追加后的 []byte<br>func AppendUint(dst []byte, i uint64, base int) []byte</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">    b := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">    b = strconv.AppendUint(b, <span class="number">2048</span>, <span class="number">16</span>)</span><br><span class="line">    fmt.Printf(<span class="string">"%s"</span>, b) <span class="comment">// 800</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// quote.go</p>
+<p>-———————————————————–</p>
+<p>// Quote 将字符串 s 转换为“双引号”引起来的字符串</p>
+<p>// 其中的特殊字符将被转换为“转义字符”</p>
+<p>// “不可显示的字符”将被转换为“转义字符”</p>
+<p>func Quote(s string) string</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line">	fmt.Println(strconv.Quote(`C:\Windows`))</span><br><span class="line">	// "C:\\Windows"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：此处是反引号（键盘上１左侧那个按键），而不是单引号</p>
+<p>-———————————————————–</p>
+<p>// AppendQuote 将字符串 s 转换为“双引号”引起来的字符串，</p>
+<p>// 并将结果追加到 dst 的尾部，返回追加后的 []byte</p>
+<p>// 其中的特殊字符将被转换为“转义字符”</p>
+<p>func AppendQuote(dst []byte, s string) []byte</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := <span class="string">`C:\Windows`</span></span><br><span class="line">	b := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">	b = strconv.AppendQuote(b, s)</span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b) <span class="comment">// "C:\\Windows"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-———————————————————–</p>
+<p>// QuoteToASCII 将字符串 s 转换为“双引号”引起来的 ASCII 字符串</p>
+<p>// “非 ASCII 字符”和“特殊字符”将被转换为“转义字符”</p>
+<p>func QuoteToASCII(s string) string</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	fmt.Println(strconv.QuoteToASCII(<span class="string">"Hello 世界！"</span>))</span><br><span class="line">	<span class="comment">// "Hello \u4e16\u754c\uff01"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-———————————————————–</p>
+<p>// AppendQuoteToASCII 将字符串 s 转换为“双引号”引起来的 ASCII 字符串，</p>
+<p>// 并将结果追加到 dst 的尾部，返回追加后的 []byte</p>
+<p>// “非 ASCII 字符”和“特殊字符”将被转换为“转义字符”</p>
+<p>func AppendQuoteToASCII(dst []byte, s string) []byte</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := <span class="string">"Hello 世界！"</span></span><br><span class="line">	b := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">	b = strconv.AppendQuoteToASCII(b, s)</span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b) <span class="comment">// "Hello \u4e16\u754c\uff01"</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-———————————————————–</p>
+<p>// QuoteRune 将 Unicode 字符转换为“单引号”引起来的字符串</p>
+<p>// “特殊字符”将被转换为“转义字符”</p>
+<p>func QuoteRune(r rune) string</p>
+<figure class="highlight autoit"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span> &#123;</span></span><br><span class="line">	fmt.Println(strconv.QuoteRune(<span class="string">'好'</span>))</span><br><span class="line"> 	// <span class="string">'好'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>注：此处为单引号，而不是反引号，这要与Quote()使用去分开</p>
+<p>// AppendQuoteRune 将 Unicode 字符转换为“单引号”引起来的字符串，</p>
+<p>// 并将结果追加到 dst 的尾部，返回追加后的 []byte</p>
+<p>// “特殊字符”将被转换为“转义字符”</p>
+<p>func AppendQuoteRune(dst []byte, r rune) []byte</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	b := make([]byte, 0)</span><br><span class="line">	b = strconv.AppendQuoteRune(b, '好')</span><br><span class="line">	fmt.Printf("%s", b) // '好'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-———————————————————–</p>
+<p>// QuoteRuneToASCII 将 Unicode 字符转换为“单引号”引起来的 ASCII 字符串</p>
+<p>// “非 ASCII 字符”和“特殊字符”将被转换为“转义字符”</p>
+<p>func QuoteRuneToASCII(r rune) string</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func main() &#123;</span><br><span class="line"></span><br><span class="line">	fmt.Println(strconv.QuoteRuneToASCII('好'))</span><br><span class="line">	// '\u597d'</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-———————————————————–</p>
+<p>// AppendQuoteRune 将 Unicode 字符转换为“单引号”引起来的 ASCII 字符串，</p>
+<p>// 并将结果追加到 dst 的尾部，返回追加后的 []byte</p>
+<p>// “非 ASCII 字符”和“特殊字符”将被转换为“转义字符”</p>
+<p>func AppendQuoteRuneToASCII(dst []byte, r rune) []byte</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line"></span><br><span class="line">	b := <span class="built_in">make</span>([]<span class="keyword">byte</span>, <span class="number">0</span>)</span><br><span class="line">	b = strconv.AppendQuoteRuneToASCII(b, <span class="string">'好'</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%s"</span>, b) <span class="comment">// '\u597d'</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// CanBackquote 判断字符串 s 是否可以表示为一个单行的“反引号”字符串</p>
+<p>// 字符串中不能含有控制字符（除了 \t）和“反引号”字符，否则返回 false</p>
+<p>func CanBackquote(s string) bool</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	b := strconv.CanBackquote(<span class="string">"C:\\Windows\n"</span>)</span><br><span class="line">	fmt.Println(b) <span class="comment">// false</span></span><br><span class="line">	b = strconv.CanBackquote(<span class="string">"C:\\Windows\r"</span>)</span><br><span class="line">	fmt.Println(b) <span class="comment">// false</span></span><br><span class="line">	b = strconv.CanBackquote(<span class="string">"C:\\Windows\f"</span>)</span><br><span class="line">	fmt.Println(b) <span class="comment">// false</span></span><br><span class="line">	b = strconv.CanBackquote(<span class="string">"C:\\Windows\t"</span>)</span><br><span class="line">	fmt.Println(b) <span class="comment">// true</span></span><br><span class="line">	b = strconv.CanBackquote(<span class="string">"C:\\`Windows`"</span>)</span><br><span class="line">	fmt.Println(b) <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// UnquoteChar 将 s 中的第一个字符“取消转义”并解码</p>
+<p>//</p>
+<p>// s：转义后的字符串</p>
+<p>// quote：字符串使用的“引号符”（用于对引号符“取消转义”）</p>
+<p>//</p>
+<p>// value： 解码后的字符</p>
+<p>// multibyte：value 是否为多字节字符</p>
+<p>// tail： 字符串 s 除去 value 后的剩余部分</p>
+<p>// error： 返回 s 中是否存在语法错误</p>
+<p>//</p>
+<p>// 参数 quote 为“引号符”</p>
+<p>// 如果设置为单引号，则 s 中允许出现 \’ 字符，不允许出现单独的 ‘ 字符</p>
+<p>// 如果设置为双引号，则 s 中允许出现 \” 字符，不允许出现单独的 “ 字符</p>
+<p>// 如果设置为 0，则不允许出现 \’ 或 \” 字符，可以出现单独的 ‘ 或 “ 字符</p>
+<p>func UnquoteChar(s string, quote byte) (value rune, multibyte bool, tail string, err error)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	s := <span class="string">`\"大\\家\\好！\"`</span></span><br><span class="line">	c, mb, sr, _ := strconv.UnquoteChar(s, <span class="string">'"'</span>)</span><br><span class="line">	fmt.Printf(<span class="string">"%-3c %v\n"</span>, c, mb)</span><br><span class="line">	<span class="keyword">for</span> ; <span class="built_in">len</span>(sr) &gt; <span class="number">0</span>; c, mb, sr, _ = strconv.UnquoteChar(sr, <span class="string">'"'</span>) &#123;</span><br><span class="line">		fmt.Printf(<span class="string">"%-3c %v\n"</span>, c, mb)</span><br><span class="line">	&#125;</span><br><span class="line">	<span class="comment">// " false</span></span><br><span class="line">	<span class="comment">// 大 true</span></span><br><span class="line">	<span class="comment">// \ false</span></span><br><span class="line">	<span class="comment">// 家 true</span></span><br><span class="line">	<span class="comment">// \ false</span></span><br><span class="line">	<span class="comment">// 好 true</span></span><br><span class="line">	<span class="comment">// ！ true</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>// Unquote 将“带引号的字符串” s 转换为常规的字符串（不带引号和转义字符）</p>
+<p>// s 可以是“单引号”、“双引号”或“反引号”引起来的字符串（包括引号本身）</p>
+<p>// 如果 s 是单引号引起来的字符串，则返回该该字符串代表的字符</p>
+<p>func Unquote(s string) (t string, err error)</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	sr, err := strconv.Unquote(<span class="string">`"\"大\t家\t好！\""`</span>)</span><br><span class="line">	fmt.Println(sr, err)</span><br><span class="line">	sr, err = strconv.Unquote(<span class="string">`'大家好！'`</span>)</span><br><span class="line">	fmt.Println(sr, err)</span><br><span class="line">	sr, err = strconv.Unquote(<span class="string">`'好'`</span>)</span><br><span class="line">	fmt.Println(sr, err)</span><br><span class="line">	sr, err = strconv.Unquote(<span class="string">"`大\\t家\\t好！`"</span>)</span><br><span class="line">	fmt.Println(sr, err)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>-———————————————————–</p>
+<p>// IsPrint 判断 Unicode 字符 r 是否是一个可显示的字符</p>
+<p>// 可否显示并不是你想象的那样，比如空格可以显示，而\t则不能显示</p>
+<p>// 具体可以参考 Go 语言的源码</p>
+<p>func IsPrint(r rune) bool</p>
+<figure class="highlight go"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">main</span><span class="params">()</span></span> &#123;</span><br><span class="line">	fmt.Println(strconv.IsPrint(<span class="string">'a'</span>))  <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.IsPrint(<span class="string">'好'</span>))  <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.IsPrint(<span class="string">' '</span>))  <span class="comment">// true</span></span><br><span class="line">	fmt.Println(strconv.IsPrint(<span class="string">'\t'</span>)) <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.IsPrint(<span class="string">'\n'</span>)) <span class="comment">// false</span></span><br><span class="line">	fmt.Println(strconv.IsPrint(<span class="number">0</span>))    <span class="comment">// false</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="../../../../tags/Just-For-Remember/" rel="tag"># Just For Remember</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="../fmt 包中的函数和方法/" rel="next" title="fmt 包中的函数和方法">
+                <i class="fa fa-chevron-left"></i> fmt 包中的函数和方法
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="../bytes 包中的函数和方法/" rel="prev" title="bytes 包中的函数和方法">
+                bytes 包中的函数和方法 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image" src="../../../../images/avatar.gif" alt="Yuan">
+            
+              <p class="site-author-name" itemprop="name">Yuan</p>
+              <p class="site-description motion-element" itemprop="description">Life is a struggle. Wish you all the best !</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="../../../../archives/">
+              
+                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="../../../../categories/index.html">
+                  <span class="site-state-item-count">9</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="../../../../tags/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/yuanyh997" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:yuanyh997@hotmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#strconv-包中的函数和方法"><span class="nav-number">1.</span> <span class="nav-text">strconv 包中的函数和方法</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Yuan</span>
+
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Gemini</a> v5.1.4</div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+  
+
+
+  
+
+  
+
+</body>
+</html>

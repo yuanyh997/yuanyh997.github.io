@@ -40,7 +40,7 @@
 
   
   
-  <link href="../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+  <link href="../../../../lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
 
 
 
@@ -98,21 +98,21 @@
 
 
 
-<link href="../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+<link href="../../../../lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
 
-<link href="../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
-
-
-  <link rel="apple-touch-icon" sizes="180x180" href="../../images/apple-touch-icon-next.png?v=5.1.4">
+<link href="../../../../css/main.css?v=5.1.4" rel="stylesheet" type="text/css">
 
 
-  <link rel="icon" type="image/png" sizes="32x32" href="../../images/favicon-32x32-next.png?v=5.1.4">
+  <link rel="apple-touch-icon" sizes="180x180" href="../../../../images/apple-touch-icon-next.png?v=5.1.4">
 
 
-  <link rel="icon" type="image/png" sizes="16x16" href="../../images/favicon-16x16-next.png?v=5.1.4">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../../../images/favicon-32x32-next.png?v=5.1.4">
 
 
-  <link rel="mask-icon" href="../../images/logo.svg?v=5.1.4" color="#222">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../../../images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="../../../../images/logo.svg?v=5.1.4" color="#222">
 
 
 
@@ -129,16 +129,41 @@
 
 
 
-<meta name="description" content="Life is a struggle. Wish you all the best !">
-<meta property="og:type" content="website">
+<meta name="description" content="外部排序​    给你一个包含20亿个int类型整数的文件，计算机的内存只有2GB，怎么给它们排序？一个int数占4个字节，20个亿需要80亿字节，大概占用8GB的内存，而计算机只有2GB的内存，数据都装不下！可以把8GB分割成4个2GB的数据来排，然后在把他们拼凑回去。如下图：  排序的时候我们可以选择快速排序或归并排序等算法。为了方便，我们把排序好的2G有序数据称之为有序子串吧。接着我们可以把">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Yuan&#39;s blog">
-<meta property="og:url" content="http://yuanyh997.github.io/categories/杂/index.html">
+<meta property="og:url" content="http://yuanyh997.github.io/2019/06/27/外部排序/index.html">
 <meta property="og:site_name" content="Yuan&#39;s blog">
-<meta property="og:description" content="Life is a struggle. Wish you all the best !">
+<meta property="og:description" content="外部排序​    给你一个包含20亿个int类型整数的文件，计算机的内存只有2GB，怎么给它们排序？一个int数占4个字节，20个亿需要80亿字节，大概占用8GB的内存，而计算机只有2GB的内存，数据都装不下！可以把8GB分割成4个2GB的数据来排，然后在把他们拼凑回去。如下图：  排序的时候我们可以选择快速排序或归并排序等算法。为了方便，我们把排序好的2G有序数据称之为有序子串吧。接着我们可以把">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/462a9926df4c4e6ca44d4340bb243a0d.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/5db99651c0ac4e73aabf4013592a3917.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/338fb200f69a46ff85a3ac78c9a4e2c7.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/120b8300a3a14a2bb1eb3843fe4a86a9.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/765c8e21804c48f5bb142fbc51bf3eb2.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/a963b6ac158d46cbb621552fe40fd2c0.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/5de29e25913347009b0fa09c8df661d2.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/62b62344ac6a4fbe889fbec070d1ccdb.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/644cfbe03d9b4502aef6a1053337af5b.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/bfd2ef5994d74dd793dbbf4b86dadc34.png">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927120.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927149.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927176.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927167.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927573.jpeg">
+<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927573.jpeg">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/274585bc10e54b9e94db516b70ab9c7f.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/e26258b8aa7441a9a00052a2862e8f20.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/4674e1f501634a44ad3f35865f8c817a.jpeg">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/f507d8d23b1d4d549019988562db1c55.jpeg">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/a3576ee35e0f407abc260c51913c994c.jpeg">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/59280b4fdce644bd9233f03842e51ab1.png">
+<meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/2d7d5b1d116f42ac934fc55f3581a5fd.png">
+<meta property="og:updated_time" content="2019-06-18T11:16:25.146Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Yuan&#39;s blog">
-<meta name="twitter:description" content="Life is a struggle. Wish you all the best !">
+<meta name="twitter:description" content="外部排序​    给你一个包含20亿个int类型整数的文件，计算机的内存只有2GB，怎么给它们排序？一个int数占4个字节，20个亿需要80亿字节，大概占用8GB的内存，而计算机只有2GB的内存，数据都装不下！可以把8GB分割成4个2GB的数据来排，然后在把他们拼凑回去。如下图：  排序的时候我们可以选择快速排序或归并排序等算法。为了方便，我们把排序好的2G有序数据称之为有序子串吧。接着我们可以把">
+<meta name="twitter:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/462a9926df4c4e6ca44d4340bb243a0d.png">
 
 
 
@@ -168,13 +193,13 @@
 
 
 
-  <link rel="canonical" href="http://yuanyh997.github.io/categories/杂/">
+  <link rel="canonical" href="http://yuanyh997.github.io/2019/06/27/外部排序/">
 
 
 
 
 
-  <title>分类: 杂 | Yuan's blog</title>
+  <title> | Yuan's blog</title>
   
 
 
@@ -193,7 +218,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -319,79 +344,255 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>杂<small>分类</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yuanyh997.github.io">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Yuan">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="../../../../images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Yuan's blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="../../2019/04/03/博客优化/" itemprop="url">
-              
-                <span itemprop="name">博客优化</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline"></h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-03T21:40:25+08:00" content="2019-04-03">
-          04-03
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-27T11:03:25+08:00">
+                2019-06-27
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  1.8k
+                </span>
+              
+
+              
+
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-        
+      
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <h1 id="外部排序"><a href="#外部排序" class="headerlink" title="外部排序"></a>外部排序</h1><p>​    给你一个包含20亿个int类型整数的文件，计算机的内存只有2GB，怎么给它们排序？一个int数占4个字节，20个亿需要80亿字节，大概占用8GB的内存，而计算机只有2GB的内存，数据都装不下！可以把8GB分割成4个2GB的数据来排，然后在把他们拼凑回去。如下图：</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/462a9926df4c4e6ca44d4340bb243a0d.png" alt="img"></p>
+<p>排序的时候我们可以<strong>选择快速排序或归并排序</strong>等算法。为了方便，我们把排序好的2G有序数据称之为有序子串吧。接着我们可以把两个小的有序子串合并成一个大的有序子串。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/5db99651c0ac4e73aabf4013592a3917.png" alt="img"></p>
+<p><strong>注意：</strong>读取的时候是每次读取一个int数，通过比较之后在输出。</p>
+<p>按照这个方法来回合并，总共经过三次合并之后就可以得到8G的有序子串。</p>
+<p>下面是一个具体事例：一共有12个无序数据，但是内存只能装下3个int数据</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/338fb200f69a46ff85a3ac78c9a4e2c7.png" alt="img"></p>
+<p>接下来把12个数据分成4份，然后排序成有序子串</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/120b8300a3a14a2bb1eb3843fe4a86a9.png" alt="img"></p>
+<p>然后把子串进行两两合并</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/765c8e21804c48f5bb142fbc51bf3eb2.png" alt="img"></p>
+<p>输出哪个元素，就在那个元素所在的有序子串再次读入一个元素</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/a963b6ac158d46cbb621552fe40fd2c0.png" alt="img"></p>
+<p>继续</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/5de29e25913347009b0fa09c8df661d2.png" alt="img"></p>
+<p>重复直到合并成一个包含6个int的有序子串</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/62b62344ac6a4fbe889fbec070d1ccdb.png" alt="img"></p>
+<p>再把两个包含6个int的有序子串合并成一个包含12个int数据的最终有序子串</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/644cfbe03d9b4502aef6a1053337af5b.png" alt="img"></p>
+<p>优化策略</p>
+<pre><code>因为硬盘的读写速度比内存要慢的多，按照以上这种方法，每个数据都从硬盘读了三次，写了三次，要花很多时间。
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="../../2019/04/03/博客搭建/" itemprop="url">
-              
-                <span itemprop="name">博客搭建流程</span>
-              
-            </a>
-        
-      </h2>
+解释下：例如对于数据2，我们把无序的12个数据分成有序的4个子串需要读写各一次，把2份3个有序子串合并成6个有序子串读写各一次；把2份6个有序子串合并从12个有序子串读写各一次，一共需要读写各3次。
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated" datetime="2019-04-03T21:00:25+08:00" content="2019-04-03">
-          04-03
-        </time>
-      </div>
-
-    </header>
-  </article>
-
+在进行有序子串合并的时候，不采取两两合并的方法，而是可以3个子串，或4个子串一起来合并。
+</code></pre><hr>
+<h2 id="多路归并"><a href="#多路归并" class="headerlink" title="多路归并"></a>多路归并</h2><p>为了方便讲解，我们假设<strong>内存一共可以装4个int型数据</strong>。</p>
+<p>刚才我们是采取两两合并的方式，现在我们可以采取4个有序子串一起合并的方式，这样的话，每个数据从硬盘读写的次数各需要2次就可以了。如图：</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/bfd2ef5994d74dd793dbbf4b86dadc34.png" alt="img"></p>
+<p>4个有序子串的合并，叫4路归并。如果是n个有序子串的合并，就把它称为n路归并。n并非越大越好。因为n越大的确可以减少磁盘IO次数，但是相应的合并期间在内存中选取最小值的时间也会相应增加</p>
+<h2 id="置换选择"><a href="#置换选择" class="headerlink" title="置换选择"></a>置换选择</h2><p>​         n不是越大越好，那么我们可以想办法减少有序子串的总个数。这样，也能减少数据从硬盘读写的次数。</p>
+<p>​         以前面的12个无序数据为例：</p>
+<p><img src="https://img-blog.csdnimg.cn/20181126161927120.jpeg" alt="img"></p>
+<p>​         例如我们可以从12个数据读取3个存到内存中，然后从内存中选出最小的那个数放进子串p1里；之后再从剩余的9个数据读取一个放到内存中，然后再从内存中选出一个数放进子串p1里，<strong>这个数必须满足比</strong> p1中的其他数大，且在内存中尽量小。这样一直重复，直到内存中的数都比p1中的数小，这时p1子串存放结束，继续来p2子串的存放，例如（这时假设内存只能存放3个int型数据）：</p>
+<p>​         读入3个到内存中，且选出一个最小的到子串p1：</p>
+<p><img src="https://img-blog.csdnimg.cn/20181126161927149.jpeg" alt="img"></p>
+<p>​         从内存中再次读取一个元素86：</p>
+<p><img src="https://img-blog.csdnimg.cn/20181126161927176.jpeg" alt="img"></p>
+<p>​         从内存中再次读取一个元素3：</p>
+<p><img src="https://img-blog.csdnimg.cn/20181126161927167.jpeg" alt="img"></p>
+<p>​         从内存中再次读取一个元素24：</p>
+<p><img src="https://img-blog.csdnimg.cn/20181126161927573.jpeg" alt="img"></p>
+<p>​         从内存中再次读取一个元素8：</p>
+<p><img src="https://img-blog.csdnimg.cn/20181126161927573.jpeg" alt="img"></p>
+<p>​         这个时候已经没有符合要求的数了，且内存已满，进而用p2子串来存放，以此类推。</p>
+<p>通过这种方法，p1子串存放了4个数据，而原来的那种方法p1子串只能存放3个数据。</p>
+<h2 id="利用堆排序优化查找速度"><a href="#利用堆排序优化查找速度" class="headerlink" title="利用堆排序优化查找速度"></a>利用堆排序优化查找速度</h2><p>从12个数据中读取3个数据，构建成一个<strong>最小堆</strong>，然后从<strong>堆顶</strong>选择一个数写入到p1中。</p>
+<p>之后再从剩余的9个数中读取一个数，如果这个数比刚才那个写入到p1中的数大，则把这个数插入到最小堆中，重新调整最小堆结构，然后在堆顶选一个数写入到p1中。</p>
+<p>否则，把这个数<strong>暂放在一边，暂时不处理</strong>。之后一样需要调整堆结构，从堆顶选择一个数写入到p1中。</p>
+<p><strong>这里说明一下</strong>，那被放在一边的数是不能再放入p1中的了，因为它一定比p1中的数都要小，所以它会放在下一个子串中</p>
+<p>看这些文字会让人头大，我画图解释下吧。</p>
+<p>从12数据读取3个数据</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/274585bc10e54b9e94db516b70ab9c7f.png" alt="img"></p>
+<p>构建最小堆，且选出目标数</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/e26258b8aa7441a9a00052a2862e8f20.png" alt="img"></p>
+<p>读入下一个数86</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/4674e1f501634a44ad3f35865f8c817a.jpeg" alt="img"></p>
+<p>读入下一个数3，比70小，暂放一边，不加入堆结构中</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/f507d8d23b1d4d549019988562db1c55.jpeg" alt="img"></p>
+<p>读入下一个数据24，比81小，不加入堆结构</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/a3576ee35e0f407abc260c51913c994c.jpeg" alt="img"></p>
+<p>读入下一个数据8，比86小，不加入堆结构。此时p1已经完成了，把那些刚才暂放一边的数重新构成一个堆，继续p2的存放。</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/59280b4fdce644bd9233f03842e51ab1.png" alt="img"></p>
+<p>以此类推…</p>
+<p>最后生成的p2如下：</p>
+<p><img src="http://5b0988e595225.cdn.sohucs.com/images/20181011/2d7d5b1d116f42ac934fc55f3581a5fd.png" alt="img"></p>
+<p>这样子的话，最后只生成了2个有序子串，我们把这种方法称之为置换选择。按照这种方法，最好的情况下，所有数据只生成一个有序子串；最坏的情况下，和原来没采取置换选择算法一样，还是4个子串，那平均性能如何呢？</p>
+<p> 结论：如果内存可以容纳n个元素的话，那么平均每个子串的长度为2n，也就是说，使用置换选择算法我们可以减少一半的子串数。</p>
+<p> 这种方法适合要排序的数据太多，以至于内存一次性装载不下。只能通过把数据分几次的方式来排序，把这种方法称为外部排序。</p>
+<h2 id="提升外部排序性能的方法"><a href="#提升外部排序性能的方法" class="headerlink" title="提升外部排序性能的方法"></a>提升外部排序性能的方法</h2><ul>
+<li><p><strong>并行计算</strong></p>
+</li>
+<li><ul>
+<li>用多个磁盘驱动器并行处理数据，可以加速顺序磁盘读写。</li>
+<li>在计算机上使用多<a href="https://baike.baidu.com/item/线程" target="_blank" rel="noopener">线程</a>，可在多核心的计算机上得到优化。</li>
+<li>使用异步输入输出，可以同时排序和归并，同时读写。</li>
+<li>使用多台计算机用高速网络连接，分担计算任务。</li>
+</ul>
+</li>
+<li><p><strong>提高硬件速度</strong></p>
+</li>
+<li><ul>
+<li>增大内存，减小磁盘读写次数，减小归并次数。</li>
+<li>使用快速的外存设备，比如15000 RPM的硬盘或<a href="https://baike.baidu.com/item/固态硬盘" target="_blank" rel="noopener">固态硬盘</a>。</li>
+<li>使用性能更优良个各种设备，比如使用多核心<a href="https://baike.baidu.com/item/CPU" target="_blank" rel="noopener">CPU</a>和延迟时间更短的内存。</li>
+</ul>
+</li>
+<li><p><strong>提高软件速度</strong></p>
+</li>
+<li><ul>
+<li>对于某些特殊数据，在第一阶段的排序中使用<a href="https://baike.baidu.com/item/基数排序" target="_blank" rel="noopener">基数排序</a>。</li>
+<li>压缩输入输出文件和临时文件。</li>
+</ul>
+</li>
+</ul>
 
       
     </div>
+    
+    
+    
 
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="../用sqlcipher查看微信聊天记录/" rel="next" title>
+                <i class="fa fa-chevron-left"></i> 
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -399,6 +600,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -419,12 +624,21 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
-              <img class="site-author-image" itemprop="image" src="../../images/avatar.gif" alt="Yuan">
+              <img class="site-author-image" itemprop="image" src="../../../../images/avatar.gif" alt="Yuan">
             
               <p class="site-author-name" itemprop="name">Yuan</p>
               <p class="site-description motion-element" itemprop="description">Life is a struggle. Wish you all the best !</p>
@@ -435,7 +649,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="../../archives/">
+                <a href="../../../../archives/">
               
                   <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
@@ -447,7 +661,7 @@
               
               
               <div class="site-state-item site-state-categories">
-                <a href="../index.html">
+                <a href="../../../../categories/index.html">
                   <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
@@ -458,7 +672,7 @@
               
               
               <div class="site-state-item site-state-tags">
-                <a href="../../tags/index.html">
+                <a href="../../../../tags/index.html">
                   <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
@@ -498,6 +712,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#外部排序"><span class="nav-number">1.</span> <span class="nav-text">外部排序</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#多路归并"><span class="nav-number">1.1.</span> <span class="nav-text">多路归并</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#置换选择"><span class="nav-number">1.2.</span> <span class="nav-text">置换选择</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#利用堆排序优化查找速度"><span class="nav-number">1.3.</span> <span class="nav-text">利用堆排序优化查找速度</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#提升外部排序性能的方法"><span class="nav-number">1.4.</span> <span class="nav-text">提升外部排序性能的方法</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -589,60 +819,64 @@
 
   
   
-    <script type="text/javascript" src="../../lib/jquery/index.js?v=2.1.3"></script>
+    <script type="text/javascript" src="../../../../lib/jquery/index.js?v=2.1.3"></script>
   
 
   
   
-    <script type="text/javascript" src="../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+    <script type="text/javascript" src="../../../../lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
   
 
   
   
-    <script type="text/javascript" src="../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+    <script type="text/javascript" src="../../../../lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
   
 
   
   
-    <script type="text/javascript" src="../../lib/velocity/velocity.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="../../../../lib/velocity/velocity.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+    <script type="text/javascript" src="../../../../lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
   
 
   
   
-    <script type="text/javascript" src="../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+    <script type="text/javascript" src="../../../../lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
   
 
 
   
 
 
-  <script type="text/javascript" src="../../js/src/utils.js?v=5.1.4"></script>
+  <script type="text/javascript" src="../../../../js/src/utils.js?v=5.1.4"></script>
 
-  <script type="text/javascript" src="../../js/src/motion.js?v=5.1.4"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="../../js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="../../js/src/schemes/pisces.js?v=5.1.4"></script>
+  <script type="text/javascript" src="../../../../js/src/motion.js?v=5.1.4"></script>
 
 
 
   
+  
+
+
+  <script type="text/javascript" src="../../../../js/src/affix.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="../../../../js/src/schemes/pisces.js?v=5.1.4"></script>
+
+
+
+  
+  <script type="text/javascript" src="../../../../js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="../../../../js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
 
-  <script type="text/javascript" src="../../js/src/bootstrap.js?v=5.1.4"></script>
+  <script type="text/javascript" src="../../../../js/src/bootstrap.js?v=5.1.4"></script>
 
 
 
@@ -1012,26 +1246,6 @@
   
 
   
-  
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Config({
-        tex2jax: {
-          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
-          processEscapes: true,
-          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-        }
-      });
-    </script>
-
-    <script type="text/x-mathjax-config">
-      MathJax.Hub.Queue(function() {
-        var all = MathJax.Hub.getAllJax(), i;
-        for (i=0; i < all.length; i += 1) {
-          all[i].SourceElement().parentNode.className += ' has-jax';
-        }
-      });
-    </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script>
   
 
 
