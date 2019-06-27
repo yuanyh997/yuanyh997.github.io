@@ -147,12 +147,12 @@
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/62b62344ac6a4fbe889fbec070d1ccdb.png">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/644cfbe03d9b4502aef6a1053337af5b.png">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/bfd2ef5994d74dd793dbbf4b86dadc34.png">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927120.jpeg">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927149.jpeg">
+<meta property="og:image" content="http://yuanyh997.github.io/2019/05/24/外部排序/20181126161927120.jpeg">
+<meta property="og:image" content="http://yuanyh997.github.io/2019/05/24/外部排序/20181126161927149.jpeg">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927176.jpeg">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927167.jpeg">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927573.jpeg">
-<meta property="og:image" content="https://img-blog.csdnimg.cn/20181126161927573.jpeg">
+<meta property="og:image" content="http://yuanyh997.github.io/2019/05/24/外部排序/20181126161927167.jpeg">
+<meta property="og:image" content="http://yuanyh997.github.io/2019/05/24/外部排序/20181126161927573.jpeg">
+<meta property="og:image" content="http://yuanyh997.github.io/2019/05/24/外部排序/20181126161927573.jpeg">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/274585bc10e54b9e94db516b70ab9c7f.png">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/e26258b8aa7441a9a00052a2862e8f20.png">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/4674e1f501634a44ad3f35865f8c817a.jpeg">
@@ -160,7 +160,7 @@
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/a3576ee35e0f407abc260c51913c994c.jpeg">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/59280b4fdce644bd9233f03842e51ab1.png">
 <meta property="og:image" content="http://5b0988e595225.cdn.sohucs.com/images/20181011/2d7d5b1d116f42ac934fc55f3581a5fd.png">
-<meta property="og:updated_time" content="2019-06-27T03:20:56.542Z">
+<meta property="og:updated_time" content="2019-06-27T05:40:20.039Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="外部排序">
 <meta name="twitter:description" content="外部排序​    给你一个包含20亿个int类型整数的文件，计算机的内存只有2GB，怎么给它们排序？一个int数占4个字节，20个亿需要80亿字节，大概占用8GB的内存，而计算机只有2GB的内存，数据都装不下！可以把8GB分割成4个2GB的数据来排，然后在把他们拼凑回去。如下图：  排序的时候我们可以选择快速排序或归并排序等算法。为了方便，我们把排序好的2G有序数据称之为有序子串吧。接着我们可以把">
@@ -500,18 +500,18 @@
 <p>4个有序子串的合并，叫4路归并。如果是n个有序子串的合并，就把它称为n路归并。n并非越大越好。因为n越大的确可以减少磁盘IO次数，但是相应的合并期间在内存中选取最小值的时间也会相应增加</p>
 <h2 id="置换选择"><a href="#置换选择" class="headerlink" title="置换选择"></a>置换选择</h2><p>​         n不是越大越好，那么我们可以想办法减少有序子串的总个数。这样，也能减少数据从硬盘读写的次数。</p>
 <p>​         以前面的12个无序数据为例：</p>
-<p><img src="https://img-blog.csdnimg.cn/20181126161927120.jpeg" alt="img"></p>
+<p><img src="/2019/05/24/外部排序/20181126161927120.jpeg" alt="img"></p>
 <p>​         例如我们可以从12个数据读取3个存到内存中，然后从内存中选出最小的那个数放进子串p1里；之后再从剩余的9个数据读取一个放到内存中，然后再从内存中选出一个数放进子串p1里，<strong>这个数必须满足比</strong> p1中的其他数大，且在内存中尽量小。这样一直重复，直到内存中的数都比p1中的数小，这时p1子串存放结束，继续来p2子串的存放，例如（这时假设内存只能存放3个int型数据）：</p>
 <p>​         读入3个到内存中，且选出一个最小的到子串p1：</p>
-<p><img src="https://img-blog.csdnimg.cn/20181126161927149.jpeg" alt="img"></p>
+<p><img src="/2019/05/24/外部排序/20181126161927149.jpeg" alt="img"></p>
 <p>​         从内存中再次读取一个元素86：</p>
 <p><img src="https://img-blog.csdnimg.cn/20181126161927176.jpeg" alt="img"></p>
 <p>​         从内存中再次读取一个元素3：</p>
-<p><img src="https://img-blog.csdnimg.cn/20181126161927167.jpeg" alt="img"></p>
+<p><img src="/2019/05/24/外部排序/20181126161927167.jpeg" alt="img"></p>
 <p>​         从内存中再次读取一个元素24：</p>
-<p><img src="https://img-blog.csdnimg.cn/20181126161927573.jpeg" alt="img"></p>
+<p><img src="/2019/05/24/外部排序/20181126161927573.jpeg" alt="img"></p>
 <p>​         从内存中再次读取一个元素8：</p>
-<p><img src="https://img-blog.csdnimg.cn/20181126161927573.jpeg" alt="img"></p>
+<p><img src="/2019/05/24/外部排序/20181126161927573.jpeg" alt="img"></p>
 <p>​         这个时候已经没有符合要求的数了，且内存已满，进而用p2子串来存放，以此类推。</p>
 <p>通过这种方法，p1子串存放了4个数据，而原来的那种方法p1子串只能存放3个数据。</p>
 <h2 id="利用堆排序优化查找速度"><a href="#利用堆排序优化查找速度" class="headerlink" title="利用堆排序优化查找速度"></a>利用堆排序优化查找速度</h2><p>从12个数据中读取3个数据，构建成一个<strong>最小堆</strong>，然后从<strong>堆顶</strong>选择一个数写入到p1中。</p>
