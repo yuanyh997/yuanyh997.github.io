@@ -456,8 +456,8 @@
 <h3 id="2-引用类型"><a href="#2-引用类型" class="headerlink" title="2.引用类型"></a><strong>2.引用类型</strong></h3><p>引用类型包括类、接口、枚举和数组类型、null类型。</p>
 <p>空引用null只能被被转化为引用类型，不能转化成基本类型，因此，不能把一个null值赋给基本类型的变量。</p>
 <p>备注：（1）字符串类型是一个类，即引用类型</p>
-<h2 id="二、循环用法"><a href="#二、循环用法" class="headerlink" title="二、循环用法"></a>二、循环用法</h2><h3 id="if的用法"><a href="#if的用法" class="headerlink" title="if的用法"></a>if的用法</h3><figure class="highlight gauss"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(statement)&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">else</span> <span class="keyword">if</span>()&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"><span class="keyword">else</span> &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="switch的用法"><a href="#switch的用法" class="headerlink" title="switch的用法"></a>switch的用法</h3><figure class="highlight actionscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span> (表达式) &#123;</span><br><span class="line">	<span class="keyword">case</span> 值<span class="number">1</span>: </span><br><span class="line">		语句序列<span class="number">1</span>;</span><br><span class="line">		[<span class="keyword">break</span>];</span><br><span class="line">	<span class="keyword">case</span> 值<span class="number">2</span>:</span><br><span class="line">		语句序列<span class="number">2</span>;</span><br><span class="line">		[<span class="keyword">break</span>];</span><br><span class="line">    	 … … …      … …</span><br><span class="line">	[<span class="keyword">default</span>:默认语句;]</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="二、循环用法"><a href="#二、循环用法" class="headerlink" title="二、循环用法"></a>二、循环用法</h2><h3 id="if的用法"><a href="#if的用法" class="headerlink" title="if的用法"></a>if的用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">if(statement)&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">else if()&#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line">else &#123;</span><br><span class="line"></span><br><span class="line">	&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="switch的用法"><a href="#switch的用法" class="headerlink" title="switch的用法"></a>switch的用法</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">switch (表达式) &#123;</span><br><span class="line">	case 值1: </span><br><span class="line">		语句序列1;</span><br><span class="line">		[break];</span><br><span class="line">	case 值2:</span><br><span class="line">		语句序列2;</span><br><span class="line">		[break];</span><br><span class="line">    	 … … …      … …</span><br><span class="line">	[default:默认语句;]</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="while和for的用法"><a href="#while和for的用法" class="headerlink" title="while和for的用法"></a>while和for的用法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">while</span>(statement)&#123;</span><br><span class="line">   </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (初始表达式; 布尔表达式; 迭代因子) &#123;</span><br><span class="line">  循环体;</span><br><span class="line"></span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
 <h2 id="三、重载"><a href="#三、重载" class="headerlink" title="三、重载"></a>三、重载</h2><h4 id="构成方法重载的条件："><a href="#构成方法重载的条件：" class="headerlink" title="构成方法重载的条件："></a>构成方法重载的条件：</h4><p> 1.不同的含义：形参类型、形参个数、形参顺序不同</p>
 <p>  2.只有返回值不同不构成方法的重载 </p>
@@ -662,7 +662,7 @@
               
                 <a href="../../../../archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -673,7 +673,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="../../../../categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -684,7 +684,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

@@ -444,7 +444,7 @@
 
       
         <h2 id="在Windows的Wamp64下在不同的端口下部署多项目："><a href="#在Windows的Wamp64下在不同的端口下部署多项目：" class="headerlink" title="在Windows的Wamp64下在不同的端口下部署多项目："></a>在Windows的Wamp64下在不同的端口下部署多项目：</h2><p>首先打开注释：</p>
-<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Virtual hosts</span><br><span class="line"><span class="keyword">Include</span> <span class="keyword">conf</span>/extra/httpd-vhosts.<span class="keyword">conf</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># Virtual hosts</span><br><span class="line">Include conf/extra/httpd-vhosts.conf</span><br></pre></td></tr></table></figure>
 <p>修改C:\wamp64\bin\apache\apache2.4.37\conf\extra下的</p>
 <p>httpd-vhosts.conf</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"># Virtual Hosts</span><br><span class="line">#</span><br><span class="line">&lt;VirtualHost *:80&gt;</span><br><span class="line">  ServerName localhost</span><br><span class="line">  ServerAlias localhost</span><br><span class="line">  DocumentRoot &quot;$&#123;INSTALL_DIR&#125;/www&quot;</span><br><span class="line">  &lt;Directory &quot;$&#123;INSTALL_DIR&#125;/www/&quot;&gt;</span><br><span class="line">    Options +Indexes +Includes +FollowSymLinks +MultiViews</span><br><span class="line">    AllowOverride All</span><br><span class="line">    Require local</span><br><span class="line">  &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">Listen 88</span><br><span class="line">&lt;VirtualHost *:88&gt;</span><br><span class="line">	ServerName localhost</span><br><span class="line">	DocumentRoot C:/wamp64/www/jsjxh/src</span><br><span class="line">	&lt;Directory  &quot;C:/wamp64/www/jsjxh/src&quot;&gt;</span><br><span class="line">		Options +Indexes +Includes +FollowSymLinks +MultiViews</span><br><span class="line">		AllowOverride All</span><br><span class="line">		Require local</span><br><span class="line">	&lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line">Listen 777</span><br><span class="line">&lt;VirtualHost *:777&gt;</span><br><span class="line">	ServerName localhost</span><br><span class="line">	DocumentRoot C:/wamp64/www/2017</span><br><span class="line">	&lt;Directory  &quot;C:/wamp64/www/2017&quot;&gt;</span><br><span class="line">		Options +Indexes +Includes +FollowSymLinks +MultiViews</span><br><span class="line">		AllowOverride All</span><br><span class="line">		Require local</span><br><span class="line">	&lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
@@ -569,7 +569,7 @@
               
                 <a href="../../../../archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -580,7 +580,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="../../../../categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -591,7 +591,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

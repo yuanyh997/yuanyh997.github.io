@@ -488,22 +488,22 @@
 <li><p>最后按<code>ctrl+c</code>关闭本地服务器。</p>
 </li>
 </ol>
-<h3 id="二-配置Git-ssh"><a href="#二-配置Git-ssh" class="headerlink" title="二. 配置Git  ssh"></a>二. 配置Git  ssh</h3><h4 id="1-设置Git的user-name和email"><a href="#1-设置Git的user-name和email" class="headerlink" title="1. 设置Git的user name和email"></a>1. 设置Git的user name和email</h4><figure class="highlight routeros"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git<span class="built_in"> config </span>--global user.name <span class="string">"&#123;username&#125;"</span></span><br><span class="line">git<span class="built_in"> config </span>--global user.email <span class="string">"&#123;emailaddr&#125;"</span></span><br></pre></td></tr></table></figure>
-<h4 id="2-检查是否已经有SSH-Key"><a href="#2-检查是否已经有SSH-Key" class="headerlink" title="2. 检查是否已经有SSH Key"></a>2. 检查是否已经有SSH Key</h4><figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cd</span> ~<span class="string">/.ssh</span></span><br><span class="line"><span class="keyword">ls</span></span><br></pre></td></tr></table></figure>
+<h3 id="二-配置Git-ssh"><a href="#二-配置Git-ssh" class="headerlink" title="二. 配置Git  ssh"></a>二. 配置Git  ssh</h3><h4 id="1-设置Git的user-name和email"><a href="#1-设置Git的user-name和email" class="headerlink" title="1. 设置Git的user name和email"></a>1. 设置Git的user name和email</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;&#123;username&#125;&quot;</span><br><span class="line">git config --global user.email &quot;&#123;emailaddr&#125;&quot;</span><br></pre></td></tr></table></figure>
+<h4 id="2-检查是否已经有SSH-Key"><a href="#2-检查是否已经有SSH-Key" class="headerlink" title="2. 检查是否已经有SSH Key"></a>2. 检查是否已经有SSH Key</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd ~/.ssh</span><br><span class="line">ls</span><br></pre></td></tr></table></figure>
 <p>列出文件看看是否有 id_isa 和 id_isa.pub 文件</p>
 <p>如果有可以跳过生成密钥这一阶段</p>
 <ol start="3">
 <li><h4 id="生成密钥"><a href="#生成密钥" class="headerlink" title="生成密钥"></a>生成密钥</h4></li>
 </ol>
-<figure class="highlight excel"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -<span class="built_in">t</span> rsa -C <span class="string">"&#123;email&#125;"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;&#123;email&#125;&quot;</span><br></pre></td></tr></table></figure>
 <p>​    如果不需要密码的话，连续3个回车。最后得到了两个文件：id_rsa和id_rsa.pub。</p>
 <p>默认的存储路径是：</p>
-<figure class="highlight taggerscript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:<span class="symbol">\U</span>sers<span class="symbol">\&#123;</span>UserName&#125;<span class="symbol">\.</span>ssh</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">C:\Users\&#123;UserName&#125;\.ssh</span><br></pre></td></tr></table></figure>
 <h4 id="4-添加密钥到ssh-agent"><a href="#4-添加密钥到ssh-agent" class="headerlink" title="4. 添加密钥到ssh-agent"></a>4. 添加密钥到ssh-agent</h4><p>​    确保 ssh-agent 是可用的。ssh-agent是一种控制用来保存公钥身份验证所使用的私钥的程序，其实ssh-agent就是一个密钥管理器，</p>
 <p>​    运行ssh-agent以后，使用ssh-add将私钥交给ssh-agent保管，其他程序需要身份验证的时候可以将验证申请交给ssh-agent来完成整个认证过程。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># start the ssh-agent in the background</span></span><br><span class="line"><span class="built_in">eval</span> <span class="string">"<span class="variable">$(ssh-agent -s)</span>"</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"># start the ssh-agent in the background</span><br><span class="line">eval &quot;$(ssh-agent -s)&quot;</span><br></pre></td></tr></table></figure>
 <p>​    添加生成的 SSH key 到 ssh-agent。</p>
-<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-<span class="keyword">add</span><span class="bash"> ~/.ssh/id_rsa</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-add ~/.ssh/id_rsa</span><br></pre></td></tr></table></figure>
 <h4 id="5-登陆Github-添加-ssh"><a href="#5-登陆Github-添加-ssh" class="headerlink" title="5. 登陆Github, 添加 ssh"></a>5. 登陆Github, 添加 ssh</h4><p>​    打开<a href="http://link.zhihu.com/?target=http%3A//github.com/" target="_blank" rel="noopener">github</a>，在头像下面点击<code>settings</code>，再点击<code>SSH and GPG keys</code>，新建一个SSH，名字随便。</p>
 <p>​    打开<code>C:\Users\{UserName}\.ssh\id_rsa.pub</code>，注意是隐藏文件夹，将其中的内容复制到新建的SSH中。</p>
 <p>​    输入<code>ssh -T git@github.com</code>，如果如下图所示，出现你的用户名，那就成功了。</p>
@@ -642,7 +642,7 @@
               
                 <a href="../../../../archives/">
               
-                  <span class="site-state-item-count">20</span>
+                  <span class="site-state-item-count">27</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -653,7 +653,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="../../../../categories/index.html">
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">分类</span>
                 </a>
               </div>
@@ -664,7 +664,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="../../../../tags/index.html">
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
